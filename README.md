@@ -148,34 +148,42 @@ git push -u origin main
 
 Bu repoda `.github/workflows/firebase-hosting-merge.yml` (main'e push'ta
 canlıya deploy) ve `firebase-hosting-pull-request.yml` (her PR'da preview
-linki) hazır. Çalışmaları için tek bir secret gerekir:
-`FIREBASE_SERVICE_ACCOUNT`.
+linki) hazır. Çalışmaları için tek bir secret gerekir: `FIREBASE_TOKEN`.
 
-En kolay yol (otomatik):
+> **Not:** Standart Firebase GitHub Action'ı bir servis hesabı JSON key'i
+> bekler, ancak Google Cloud organizasyon politikası
+> (`iam.disableServiceAccountKeyCreation`) bu projede servis hesabı key'i
+> oluşturmayı engelliyor (Google'ın önerdiği güvenlik varsayılanı). Bu
+> nedenle workflow'lar, servis hesabı yerine bir **Firebase CI token'ı**
+> (`firebase login:ci` ile üretilen, kullanıcı hesabına bağlı bir OAuth
+> refresh token'ı) ile doğrudan `firebase-tools deploy` çalıştıracak şekilde
+> kuruldu. Bu yöntem org policy'den etkilenmez ve hemen çalışır.
+
+Token'ı üretip secret olarak eklemek için (tarayıcı onayı gerektirir, bu
+adım terminalinizde yapılmalı):
 
 ```bash
-npx firebase init hosting:github
+npx firebase-tools login:ci
+# çıktıdaki 1//... ile başlayan token'ı kopyalayın
+
+gh secret set FIREBASE_TOKEN --repo collective-bucket-org/menu --body "BURAYA_TOKENI_YAPISTIRIN"
 ```
 
-Bu komut GitHub ile cihaz kimlik doğrulaması yapar, gerekli servis hesabını
-oluşturur ve `collective-bucket-org/menu` reposuna `FIREBASE_SERVICE_ACCOUNT_*`
-adında bir secret ekler. Otomatik oluşturulan secret adı bu repodaki
-workflow dosyalarındakinden farklıysa (örn.
-`FIREBASE_SERVICE_ACCOUNT_COLLECTIVE_BUCKET_APPS`), workflow dosyalarındaki
-`FIREBASE_SERVICE_ACCOUNT` referansını o adla güncelleyin ya da GitHub'da
-secret'ı `FIREBASE_SERVICE_ACCOUNT` adıyla yeniden oluşturun.
+Doğrulama (token değerini göstermez, sadece secret'ın var olduğunu teyit eder):
 
-Manuel yol:
-
-1. Firebase Console → **Project settings** → **Service accounts** →
-   **Generate new private key** ile bir JSON key indirin.
-2. GitHub'da `collective-bucket-org/menu` reposu → **Settings → Secrets and
-   variables → Actions → New repository secret** → adı
-   `FIREBASE_SERVICE_ACCOUNT`, değeri indirdiğiniz JSON içeriği.
+```bash
+gh secret list --repo collective-bucket-org/menu
+```
 
 Bundan sonra `main`'e her push otomatik olarak
 `https://menu.collectivebucket.com`'a deploy olur, her Pull Request için
-ayrı bir preview linki üretilir.
+ayrı bir preview linki üretilip PR'a yorum olarak eklenir.
+
+> İleride org policy'yi gevşetip servis hesabı key'ine veya daha güvenli bir
+> alternatif olan Workload Identity Federation'a geçmek isterseniz, bu
+> `FIREBASE_TOKEN` yöntemi yerine `FirebaseExtended/action-hosting-deploy`
+> action'ına dönülebilir — mimari değişmez, sadece kimlik doğrulama adımı
+> değişir.
 
 ### 7. Gelecek repolar için şablon (auth, blog, board...)
 
@@ -189,9 +197,10 @@ npx firebase target:apply hosting auth cb-auth
 
 `firebase.json`'da `"target": "auth"`, `.firebaserc`'te `auth → cb-auth`
 eşlemesi, Firebase Console'da `auth.collectivebucket.com` custom domain'i ve
-`collective-bucket-org/auth` GitHub reposu + aynı `FIREBASE_SERVICE_ACCOUNT`
-secret'ı (tek proje olduğu için secret tüm repolar arasında paylaşılabilir,
-her repoya ayrıca eklenmesi gerekir).
+`collective-bucket-org/auth` GitHub reposu + aynı `FIREBASE_TOKEN` değeri
+(token tüm repolar arasında paylaşılabilir, her repoya ayrıca
+`gh secret set FIREBASE_TOKEN --repo collective-bucket-org/<repo> --body "..."`
+ile eklenmesi gerekir).
 
 ---
 
