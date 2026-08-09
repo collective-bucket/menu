@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "collective-bucket-apps"
+  },
+  "targets": {
+    "collective-bucket-apps": {
+      "hosting": {
+        "menu": [
+          "cb-menu"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

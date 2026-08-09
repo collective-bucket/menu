@@ -1,0 +1,89 @@
+{
+  "business": {
+    "name": "Örnek Kahve Dükkanı",
+    "tagline": "Demo QR Menü",
+    "currency": "TL"
+  },
+  "categories": [
+    {
+      "name": "Sıcak İçecekler",
+      "items": [
+        {
+          "name": "Türk Kahvesi",
+          "price": 90,
+          "description": "Geleneksel yöntemle, közde pişirilmiş."
+        },
+        {
+          "name": "Filtre Kahve",
+          "price": 110,
+          "description": "Günlük taze çekim, tek kaynak."
+        },
+        {
+          "name": "Cappuccino",
+          "price": 120,
+          "description": "Espresso üzerine buharda ısıtılmış süt köpüğü."
+        },
+        {
+          "name": "Sıcak Çikolata",
+          "price": 105,
+          "description": "Bitter çikolata ile hazırlanır."
+        }
+      ]
+    },
+    {
+      "name": "Soğuk İçecekler",
+      "items": [
+        {
+          "name": "Ice Latte",
+          "price": 125,
+          "description": "Buzlu süt ve espresso."
+        },
+        {
+          "name": "Limonata",
+          "price": 95,
+          "description": "Taze sıkım limon, nane yapraklı."
+        },
+        {
+          "name": "Soğuk Çay",
+          "price": 85,
+          "description": "Şeftali aromalı, buzlu servis."
+        }
+      ]
+    },
+    {
+      "name": "Atıştırmalıklar",
+      "items": [
+        {
+          "name": "Simit",
+          "price": 45,
+          "description": "Susamlı, günlük taze."
+        },
+        {
+          "name": "Tost",
+          "price": 130,
+          "description": "Kaşarlı ve sucuklu, izgara ekmek."
+        },
+        {
+          "name": "Poğaça",
+          "price": 55,
+          "description": "Peynirli, tereyağlı."
+        }
+      ]
+    },
+    {
+      "name": "Tatlılar",
+      "items": [
+        {
+          "name": "Cheesecake",
+          "price": 150,
+          "description": "Frambuazlı, ev yapımı."
+        },
+        {
+          "name": "Brownie",
+          "price": 120,
+          "description": "Sıcak servis, vanilyalı dondurma ile."
+        }
+      ]
+    }
+  ]
+}
