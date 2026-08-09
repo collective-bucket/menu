@@ -84,6 +84,30 @@ body {
   display: inline-block;
 }
 
+.category h3 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  margin: 18px 0 4px;
+}
+
+.category h3:first-of-type {
+  margin-top: 4px;
+}
+
+.category-note {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+.item-list + .category h3,
+.item-list {
+  margin: 0;
+}
+
 .item {
   display: flex;
   justify-content: space-between;
@@ -94,6 +118,36 @@ body {
 
 .item:last-child {
   border-bottom: none;
+}
+
+.specials {
+  margin-top: 8px;
+  padding: 16px 18px;
+  border: 2px dashed var(--color-accent);
+  border-radius: 12px;
+  background: #fff8ef;
+}
+
+.specials h2 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  border-bottom: none;
+}
+
+.specials ul {
+  margin: 0;
+  padding: 0 0 0 4px;
+  list-style: none;
+}
+
+.specials li {
+  padding: 4px 0;
+  font-size: 0.95rem;
+}
+
+.specials li::before {
+  content: "• ";
+  color: var(--color-accent);
 }
 
 .item-info h3 {

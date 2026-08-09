@@ -15,8 +15,69 @@
   }
 
   function formatPrice(price, currency) {
+    if (price === undefined || price === null || price === "") return "";
     var value = Number(price).toFixed(2).replace(/\.00$/, "");
     return value + " " + (currency || "TL");
+  }
+
+  function createItemEl(item, currency) {
+    var itemEl = document.createElement("div");
+    itemEl.className = "item";
+
+    var infoEl = document.createElement("div");
+    infoEl.className = "item-info";
+
+    var nameEl = document.createElement("h3");
+    nameEl.textContent = item.name;
+    infoEl.appendChild(nameEl);
+
+    if (item.description) {
+      var descEl = document.createElement("p");
+      descEl.textContent = item.description;
+      infoEl.appendChild(descEl);
+    }
+
+    itemEl.appendChild(infoEl);
+
+    var priceText = formatPrice(item.price, currency);
+    if (priceText) {
+      var priceEl = document.createElement("span");
+      priceEl.className = "item-price";
+      priceEl.textContent = priceText;
+      itemEl.appendChild(priceEl);
+    }
+
+    return itemEl;
+  }
+
+  function createItemsListEl(items, currency) {
+    var listEl = document.createElement("div");
+    listEl.className = "item-list";
+    (items || []).forEach(function (item) {
+      listEl.appendChild(createItemEl(item, currency));
+    });
+    return listEl;
+  }
+
+  function renderDailySpecials(specials) {
+    if (!specials || !specials.items || !specials.items.length) return null;
+
+    var box = document.createElement("section");
+    box.className = "specials";
+
+    var heading = document.createElement("h2");
+    heading.textContent = "⭐ " + (specials.title || "Günün Spesiyalleri");
+    box.appendChild(heading);
+
+    var list = document.createElement("ul");
+    specials.items.forEach(function (name) {
+      var li = document.createElement("li");
+      li.textContent = name;
+      list.appendChild(li);
+    });
+    box.appendChild(list);
+
+    return box;
   }
 
   function renderMenu(data) {
@@ -26,20 +87,27 @@
     var contentEl = document.getElementById("menu-content");
 
     var business = data.business || {};
+    var currency = business.currency;
     businessNameEl.textContent = business.name || "Menü";
     taglineEl.textContent = business.tagline || "";
 
     navEl.innerHTML = "";
     contentEl.innerHTML = "";
 
+    var specialsEl = renderDailySpecials(data.dailySpecials);
+    if (specialsEl) {
+      contentEl.appendChild(specialsEl);
+    }
+
     var categories = data.categories || [];
 
     categories.forEach(function (category) {
       var id = slugify(category.name);
+      var label = (category.icon ? category.icon + " " : "") + category.name;
 
       var navLink = document.createElement("a");
       navLink.href = "#" + id;
-      navLink.textContent = category.name;
+      navLink.textContent = label;
       navEl.appendChild(navLink);
 
       var section = document.createElement("section");
@@ -47,34 +115,34 @@
       section.id = id;
 
       var heading = document.createElement("h2");
-      heading.textContent = category.name;
+      heading.textContent = label;
       section.appendChild(heading);
 
-      (category.items || []).forEach(function (item) {
-        var itemEl = document.createElement("div");
-        itemEl.className = "item";
+      if (category.note) {
+        var categoryNote = document.createElement("p");
+        categoryNote.className = "category-note";
+        categoryNote.textContent = category.note;
+        section.appendChild(categoryNote);
+      }
 
-        var infoEl = document.createElement("div");
-        infoEl.className = "item-info";
+      if (category.groups && category.groups.length) {
+        category.groups.forEach(function (group) {
+          var groupHeading = document.createElement("h3");
+          groupHeading.textContent = group.name;
+          section.appendChild(groupHeading);
 
-        var nameEl = document.createElement("h3");
-        nameEl.textContent = item.name;
-        infoEl.appendChild(nameEl);
+          if (group.note) {
+            var groupNote = document.createElement("p");
+            groupNote.className = "category-note";
+            groupNote.textContent = group.note;
+            section.appendChild(groupNote);
+          }
 
-        if (item.description) {
-          var descEl = document.createElement("p");
-          descEl.textContent = item.description;
-          infoEl.appendChild(descEl);
-        }
-
-        var priceEl = document.createElement("span");
-        priceEl.className = "item-price";
-        priceEl.textContent = formatPrice(item.price, business.currency);
-
-        itemEl.appendChild(infoEl);
-        itemEl.appendChild(priceEl);
-        section.appendChild(itemEl);
-      });
+          section.appendChild(createItemsListEl(group.items, currency));
+        });
+      } else {
+        section.appendChild(createItemsListEl(category.items, currency));
+      }
 
       contentEl.appendChild(section);
     });
