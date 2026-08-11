@@ -17,9 +17,13 @@ işletme/menü ekleme" bölümü.
 
 ## İçerik
 
-- `public/index.html`, `public/hub.js` — kök **hub sayfası**: kısa bir
-  açıklama ve `businesses.json`'dan okunan işletmelerin QR kodu + kartlarını
-  gösterir.
+- `public/index.html`, `public/hub.js`, `public/theme.css` — kök **hub
+  sayfası**: kısa bir açıklama, Collective Bucket logosu ve
+  `businesses.json`'dan okunan işletmelerin QR kodu + kartlarını gösterir.
+  `theme.css`, paylaşılan `styles.css`'ten sonra yüklenip yalnızca hub
+  sayfasına özgü renk paletini (CSS custom property'leri) geçersiz kılar —
+  aynı desen, ileride bir işletmeye özel görünüm eklemek istendiğinde
+  (`public/<slug>/theme.css`) tekrar kullanılabilir.
 - `public/businesses.json` — hub sayfasında listelenen işletmelerin listesi
   (`slug`, `name`, `tagline`). Yeni işletme eklerken buraya bir kayıt eklenir.
 - `public/styles.css`, `public/app.js` — tüm işletme menü sayfaları arasında
