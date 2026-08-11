@@ -231,14 +231,19 @@ Yeni bir işletme eklemek için:
    `categories` verisiyle oluşturulur (mevcut bir işletmenin `menu.json`'u ile
    aynı şema).
 2. `public/<slug>/index.html` — mevcut bir işletmenin `index.html`'inin
-   kopyası; `<head>` içinde `<base href="/<slug>/" />` bulunmalı, `styles.css`
-   / `app.js` referansları **kök-mutlak** (`/styles.css`, `/app.js`) olmalı.
-   `<base>` etiketi olmadan `app.js`'in göreli `fetch("menu.json")` isteği,
-   Firebase Hosting'in `trailingSlash: false` ayarı yüzünden (`/slug/` →
-   `/slug` yönlendirmesi) yanlışlıkla hub sayfasının bulunduğu köke gidebilir;
-   bu yüzden bu etiket **zorunludur**.
-3. `public/<slug>/qr.html` — mevcut bir işletmenin `qr.html`'inin aynı
-   `<base>` düzeltmesiyle kopyası (opsiyonel ama tutarlılık için önerilir).
+   kopyası; `styles.css` / `app.js` / `theme.css` referansları **kök-mutlak**
+   olmalı (`/styles.css`, `/app.js`, `/<slug>/theme.css`). Daha önce bunun
+   yerine `<base href="/<slug>/" />` kullanılıyordu, ancak bu etiket, Firebase
+   Hosting'in `trailingSlash: false` ayarı yüzünden (`/slug/` → `/slug`
+   yönlendirmesi) adres çubuğundaki gerçek URL ile uyuşmuyordu; bu da
+   `href="#kategori"` gibi sayfa-içi anchor linklerinin "aynı sayfa" olarak
+   tanınmamasına ve tıklanınca tam sayfa yeniden yüklenmesine yol açıyordu.
+   Bu yüzden `<base>` kaldırıldı: tüm statik referanslar kök-mutlak yapıldı,
+   `app.js` ise `menu.json`'u `window.location.pathname`'e göre (sondaki `/`
+   olsun ya da olmasın) kendisi hesaplıyor (`resolveMenuUrl()`).
+3. `public/<slug>/qr.html` — mevcut bir işletmenin `qr.html`'inin, aynı
+   şekilde kök-mutlak referanslarla (`/styles.css`, `/<slug>/theme.css`,
+   `/<slug>/` menü linki) kopyası.
 4. Kendi QR kodunu üretin:
    ```bash
    npm run generate-qr -- https://menu.collectivebucket.com/<slug>/ <slug>-qr

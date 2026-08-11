@@ -168,7 +168,21 @@
     contentEl.innerHTML = '<p class="error">Menü yüklenemedi. Lütfen daha sonra tekrar deneyin.</p>';
   }
 
-  fetch("menu.json", { cache: "no-cache" })
+  // Bu dosyanın kendi klasöründeki menu.json'u, sayfanın gerçek adresine
+  // (sondaki "/" olsun ya da olmasın) göre hesaplar. Daha önce bunun için
+  // <base href> kullanılıyordu, ancak bu, Firebase Hosting'in
+  // trailingSlash:false yönlendirmesiyle adres çubuğundaki URL arasında
+  // uyuşmazlık yaratıp "#kategori" gibi sayfa-içi anchor linklerinin tam
+  // sayfa yenilemesine (reload) neden olmasına yol açıyordu.
+  function resolveMenuUrl() {
+    var path = window.location.pathname;
+    if (path.charAt(path.length - 1) !== "/") {
+      path += "/";
+    }
+    return path + "menu.json";
+  }
+
+  fetch(resolveMenuUrl(), { cache: "no-cache" })
     .then(function (response) {
       if (!response.ok) {
         throw new Error("menu.json alınamadı: " + response.status);
