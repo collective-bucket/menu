@@ -328,6 +328,15 @@ npm run deploy
 eklenecek yönetim paneli (2. Etap) tarafından üretilecek çıktıyla uyumlu
 olacak şekilde tasarlanmıştır.
 
+> **Yabancı kelimeler ve "İ/I" sorunu:** Sayfalar `lang="tr"` olduğu için,
+> CSS ile büyük harfe çevrilen metinlerde (grup başlıkları, işletme adı)
+> küçük "i" harfi Türkçe kuralına göre noktalı "İ"ye dönüşür. Bu, Türkçe
+> kelimeler için doğrudur ama yabancı/loanword bir kelime içinse (örn.
+> "International", "Life") yanlış sonuç verir. Böyle bir kelimeniz varsa,
+> `business.lang` (işletme adı için) veya bir grubun `lang` alanına (örn.
+> `{ "name": "Special", "lang": "en", "items": [...] }`) `"en"` gibi bir
+> değer ekleyerek o metnin doğru (noktasız "I") büyümesini sağlayabilirsiniz.
+
 ## Maliyet
 
 Bu etapta hiçbir ücretli servis kullanılmaz:

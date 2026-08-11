@@ -90,6 +90,16 @@
     var currency = business.currency;
     businessNameEl.textContent = business.name || "Menü";
     taglineEl.textContent = business.tagline || "";
+    // CSS'te text-transform: uppercase, sayfanın lang="tr" olması yüzünden
+    // küçük "i"yi Türkçe kuralına göre noktalı "İ"ye çevirir. İşletme adı
+    // yabancı bir kelime/isimse (örn. "Natural Life"), menu.json'da
+    // business.lang: "en" belirtilerek bu davranış o eleman için devre dışı
+    // bırakılabilir ve "i" doğru şekilde noktasız büyür.
+    if (business.lang) {
+      businessNameEl.lang = business.lang;
+    } else {
+      businessNameEl.removeAttribute("lang");
+    }
 
     navEl.innerHTML = "";
     contentEl.innerHTML = "";
@@ -129,6 +139,11 @@
         category.groups.forEach(function (group) {
           var groupHeading = document.createElement("h3");
           groupHeading.textContent = group.name;
+          // Aynı İ/I düzeltmesi grup başlıkları için de geçerli (örn.
+          // "International", "Special" gibi yabancı grup adları).
+          if (group.lang) {
+            groupHeading.lang = group.lang;
+          }
           section.appendChild(groupHeading);
 
           if (group.note) {

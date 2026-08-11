@@ -73,6 +73,7 @@
       "groups": [
         {
           "name": "International",
+          "lang": "en",
           "items": [
             { "name": "Margarita", "price": 500 },
             { "name": "Negroni", "price": 600 },
@@ -88,6 +89,7 @@
         },
         {
           "name": "Special",
+          "lang": "en",
           "note": "Tamamı 550 ₺",
           "items": [
             { "name": "Kiwi Love" },

@@ -84,7 +84,10 @@ body {
   display: inline-block;
 }
 
-.category h3 {
+/* Yalnızca kategorinin doğrudan alt öğesi olan gerçek grup başlıklarını
+   (örn. "International", "Special") hedefler — ">" olmadan bu seçici
+   .item-info içindeki ürün adı h3'lerini de (yanlışlıkla) yakalıyordu. */
+.category > h3 {
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -92,7 +95,7 @@ body {
   margin: 18px 0 4px;
 }
 
-.category h3:first-of-type {
+.category > h3:first-of-type {
   margin-top: 4px;
 }
 
