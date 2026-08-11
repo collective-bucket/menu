@@ -2,7 +2,7 @@
    esinlenilmiştir: krem/bej zemin, koyu yeşilimsi-siyah metin, logodaki
    zeytin/orman yeşili vurgu rengi ve nokta ile ayrılmış büyük harfli
    "NATURAL · LIFE" başlık tipografisi. Sadece bu işletmenin index.html/qr.html'i
-   tarafından, paylaşılan styles.css'ten SONRA yüklenir; diğer işletkileri etkilemez. */
+   tarafından, paylaşılan styles.css'ten SONRA yüklenir; diğer işletmeleri etkilemez. */
 :root {
   --color-bg: #faf8f4;
   --color-text: #1d2418;
