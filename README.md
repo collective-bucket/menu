@@ -58,9 +58,12 @@ board...) planlandığı için mimari şu şekilde kurulur:
   target adı `menu`. Gelecekteki repolar için örnek: `cb-auth` / `auth`,
   `cb-blog` / `blog`, `cb-board` / `board`.
 - **Her site kendi subdomain'ine bağlanır**: `cb-menu` → `menu.collectivebucket.com`.
-- **GitHub Organization**: `admin@collectivebucket.com` hesabı, kişisel
-  hesap (`collective-bucket`) üzerinde değil, **`collective-bucket-org`**
-  adlı GitHub Organization'da; tüm demo repoları bu org altında yaşar.
+- **GitHub Organization**: tüm demo repoları **`collective-bucket`** adlı
+  GitHub Organization'da yaşar. Bu organizasyonun sahibi, `admin@collectivebucket.com`
+  ile ilişkili **`collective-bucket-admin`** adlı ayrı bir kişisel hesaptır
+  (organizasyonla aynı isimde çakışma olmasın diye kişisel hesap bilinçli
+  olarak farklı adlandırıldı; günlük kullanımda görünür olan tek isim
+  organizasyon adıdır).
 
 ### 1. Firebase projesini oluşturma
 
@@ -130,19 +133,26 @@ için bu URL'i kullanabilirsiniz.
 
 ### 5. GitHub Organization ve repo
 
-Bu adım tamamlandı: `admin@collectivebucket.com` hesabıyla **`collective-bucket-org`**
-adında bir GitHub Organization oluşturuldu (Free plan) ve bu repo oraya
-transfer edildi. Yeni repo adresi: `github.com/collective-bucket-org/menu`.
+Bu adım tamamlandı: `admin@collectivebucket.com` hesabıyla bir GitHub
+Organization oluşturuldu (Free plan) ve bu repo oraya transfer edildi.
+Organizasyon başlangıçta `collective-bucket-org` adındaydı; kişisel hesapla
+(o zamanki adıyla `collective-bucket`) isim benzerliği kafa karıştırdığı için
+kişisel hesap `collective-bucket-admin` olarak yeniden adlandırılıp
+organizasyon **`collective-bucket`** ismine taşındı. Güncel repo adresi:
+`github.com/collective-bucket/menu`.
 
-Yerel remote'u güncelleyin:
+Bu makinede push işlemleri, kişisel git kimliğinizden (`git-ertugrul-yildirim`)
+bağımsız, sadece bu org için geçerli bir SSH kimliğiyle yapılıyor
+(`~/.ssh/id_ed25519_collectivebucket` + `~/.ssh/config`'teki
+`github-collective-bucket` host alias'ı). Yerel remote:
 ```bash
-git remote set-url origin https://github.com/collective-bucket-org/menu.git
+git remote set-url origin git@github-collective-bucket:collective-bucket/menu.git
 git push -u origin main
 ```
 
 > Gelecekte açılacak yeni repolar (auth, blog, board...) da doğrudan
-> `collective-bucket-org` altında oluşturulmalı, ayrıca transfer adımı
-> gerekmez.
+> `collective-bucket` organizasyonu altında oluşturulmalı; aynı SSH alias'ı
+> (`git@github-collective-bucket:collective-bucket/<repo>.git`) kullanılabilir.
 
 ### 6. CI/CD secret'ı
 
@@ -166,13 +176,13 @@ adım terminalinizde yapılmalı):
 npx firebase-tools login:ci
 # çıktıdaki 1//... ile başlayan token'ı kopyalayın
 
-gh secret set FIREBASE_TOKEN --repo collective-bucket-org/menu --body "BURAYA_TOKENI_YAPISTIRIN"
+gh secret set FIREBASE_TOKEN --repo collective-bucket/menu --body "BURAYA_TOKENI_YAPISTIRIN"
 ```
 
 Doğrulama (token değerini göstermez, sadece secret'ın var olduğunu teyit eder):
 
 ```bash
-gh secret list --repo collective-bucket-org/menu
+gh secret list --repo collective-bucket/menu
 ```
 
 Bundan sonra `main`'e her push otomatik olarak
@@ -197,9 +207,9 @@ npx firebase target:apply hosting auth cb-auth
 
 `firebase.json`'da `"target": "auth"`, `.firebaserc`'te `auth → cb-auth`
 eşlemesi, Firebase Console'da `auth.collectivebucket.com` custom domain'i ve
-`collective-bucket-org/auth` GitHub reposu + aynı `FIREBASE_TOKEN` değeri
+`collective-bucket/auth` GitHub reposu + aynı `FIREBASE_TOKEN` değeri
 (token tüm repolar arasında paylaşılabilir, her repoya ayrıca
-`gh secret set FIREBASE_TOKEN --repo collective-bucket-org/<repo> --body "..."`
+`gh secret set FIREBASE_TOKEN --repo collective-bucket/<repo> --body "..."`
 ile eklenmesi gerekir).
 
 ---
