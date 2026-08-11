@@ -2,9 +2,10 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
+  <base href="/ya-basta/" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bizi Tarayın</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Ya Basta | Bizi Tarayın</title>
+  <link rel="stylesheet" href="/styles.css" />
   <style>
     .qr-wrap {
       max-width: 420px;
@@ -42,10 +43,10 @@
   </header>
 
   <div class="qr-wrap">
-    <img src="assets/qr.png" alt="Menüye giden QR kod" />
+    <img src="/assets/ya-basta-qr.png" alt="Ya Basta menüsüne giden QR kod" />
     <p class="hint">
-      QR kod, <code>npm run generate-qr -- &lt;deploy-url&gt;</code> komutu ile üretilir.
-      Henüz üretilmediyse bu görsel görünmeyebilir.
+      QR kod, <code>npm run generate-qr -- &lt;url&gt; ya-basta-qr</code>
+      komutu ile üretilir. Henüz üretilmediyse bu görsel görünmeyebilir.
     </p>
     <a class="menu-link" href="index.html">Menüyü doğrudan aç →</a>
   </div>

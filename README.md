@@ -2,7 +2,7 @@
 
 Kamera ile okutulunca doğrudan bir menü sayfası açan, tamamen statik ve
 ücretsiz bir QR menü demosu. Bu etapta veritabanı, backend veya yönetim
-paneli yoktur; içerik `public/menu.json` dosyasında sabittir.
+paneli yoktur; her işletmenin menüsü kendi `menu.json` dosyasında sabittir.
 
 Bu repo, **collectivebucket.com** altında yayınlanacak demo uygulamalarından
 biridir ve `menu.collectivebucket.com` adresinde çalışacak şekilde
@@ -10,17 +10,26 @@ yapılandırılmıştır. Aşağıdaki "Domain, GitHub ve CI/CD Kurulumu" bölü
 markanın diğer repoları (auth, blog, board...) için de şablon olarak
 kullanılabilir.
 
+Site, **birden çok işletmeyi** aynı anda barındırır (multi-tenant, DB'siz):
+kök adres (`/`) her işletmeye QR koduyla ulaşılabilen bir "hub" sayfasıdır,
+her işletmenin kendi menüsü `/<işletme-slug>/` altında yaşar. Bkz. "Yeni bir
+işletme/menü ekleme" bölümü.
+
 ## İçerik
 
-- `public/index.html`, `public/styles.css`, `public/app.js` — mobil öncelikli
-  menü sayfası (Ya Basta). `app.js`, `menu.json`'u okuyup sayfayı oluşturur;
-  `styles.css`/`app.js` tüm işletmeler arasında paylaşılır.
-- `public/menu.json` — Ya Basta'nın menü verisi (kategoriler, ürünler, fiyatlar).
-- `public/natural-life/` — ikinci bir işletmenin (Natural Life) menüsü;
-  `menu.collectivebucket.com/natural-life/` adresinde yayınlanır. Bkz.
-  "Aynı site altında ikinci bir işletme/menü ekleme" bölümü.
-- `public/qr.html` — demo sırasında gösterilebilecek "Bizi Tarayın" sayfası,
-  üretilen QR görselini gösterir.
+- `public/index.html`, `public/hub.js` — kök **hub sayfası**: kısa bir
+  açıklama ve `businesses.json`'dan okunan işletmelerin QR kodu + kartlarını
+  gösterir.
+- `public/businesses.json` — hub sayfasında listelenen işletmelerin listesi
+  (`slug`, `name`, `tagline`). Yeni işletme eklerken buraya bir kayıt eklenir.
+- `public/styles.css`, `public/app.js` — tüm işletme menü sayfaları arasında
+  **paylaşılan** stil ve mantık. `app.js`, ilgili klasördeki `menu.json`'u
+  okuyup sayfayı oluşturur.
+- `public/ya-basta/`, `public/natural-life/` — her işletmenin kendi klasörü:
+  `index.html` (menü sayfası), `menu.json` (kategoriler, ürünler, fiyatlar),
+  `qr.html` ("Bizi Tarayın" sayfası). Sırasıyla `menu.collectivebucket.com/ya-basta/`
+  ve `.../natural-life/` adreslerinde yayınlanır. Bkz. "Yeni bir işletme/menü
+  ekleme" bölümü.
 - `scripts/generate-qr.js` — verilen bir URL (ve isteğe bağlı çıktı adı) için
   `public/assets/<ad>.png` ve `.svg` üretir.
 - `firebase.json`, `.firebaserc` — Firebase Hosting yapılandırması
@@ -128,12 +137,15 @@ için bu URL'i kullanabilirsiniz.
 3. Firebase Console'da **Verify** ile doğrulayın. DNS yayılımı dakikalar
    içinde olabileceği gibi birkaç saati de bulabilir. Doğrulama sonrası SSL
    sertifikası Firebase tarafından otomatik sağlanır.
-4. Doğrulama tamamlandığında `https://menu.collectivebucket.com` menüyü
-   göstermeye başlar.
+4. Doğrulama tamamlandığında `https://menu.collectivebucket.com` işletmelerin
+   listelendiği hub sayfasını gösterir; her işletmenin menüsü kendi alt
+   yolundadır (örn. `https://menu.collectivebucket.com/ya-basta/`).
 
 > İleride `collectivebucket.com` kök alan adını, projenin varsayılan
-> (default) Hosting site'ında tüm demoları listeleyen bir "hub" sayfasına
-> ayırabilirsiniz — bu repo o site'ı kullanmaz, boş ve ücretsiz kalır.
+> (default) Hosting site'ında **tüm repolardaki** demoları (menu, auth,
+> blog...) listeleyen ayrı bir üst düzey "hub" sayfasına ayırabilirsiniz —
+> bu repodaki hub sayfası yalnızca bu sitedeki (menü) işletmeleri listeler,
+> o üst düzey site farklı bir kavramdır ve bu repo onu kullanmaz.
 
 ### 5. GitHub Organization ve repo
 
@@ -199,39 +211,47 @@ ayrı bir preview linki üretilip PR'a yorum olarak eklenir.
 > action'ına dönülebilir — mimari değişmez, sadece kimlik doğrulama adımı
 > değişir.
 
-### 7. Aynı site altında ikinci bir işletme/menü ekleme (multi-tenant, DB'siz)
+### 7. Yeni bir işletme/menü ekleme (multi-tenant, DB'siz)
 
-Bu repo tek bir işletmeye (Ya Basta) değil, aynı `cb-menu` sitesine bağlı
-**birden çok işletmeye** de hizmet verebilir — hâlâ veritabanı veya yönetim
-paneli olmadan. Her işletme, `public/` altında kendi klasörüne (slug) sahip
-olur ve `app.js` / `styles.css` kodunu paylaşır, sadece kendi `menu.json`'unu
-kullanır. Örnek: `public/natural-life/` klasörü, `menu.collectivebucket.com/natural-life/`
-adresinde ikinci bir işletmenin (Natural Life) menüsünü sunar.
+Bu site tek bir işletmeye değil, aynı `cb-menu` sitesine bağlı **birden çok
+işletmeye** hizmet verir — hâlâ veritabanı veya yönetim paneli olmadan. Kök
+adres (`/`) tüm işletmeleri kısa bir açıklama ve QR kodlarıyla listeleyen bir
+**hub sayfasıdır**; her işletmenin menüsü kendi klasöründe (slug) yaşar ve
+`app.js` / `styles.css` kodunu paylaşır. Örnek: `public/ya-basta/` ve
+`public/natural-life/` klasörleri sırasıyla `menu.collectivebucket.com/ya-basta/`
+ve `.../natural-life/` adreslerinde yayınlanır.
 
 Yeni bir işletme eklemek için:
 
 1. `public/<slug>/menu.json` — o işletmenin `business` bilgisi ve
-   `categories` verisiyle oluşturulur (kök `menu.json` ile aynı şema).
-2. `public/<slug>/index.html` — kök `index.html`'in kopyası; tek fark,
-   `<head>` içine `<base href="/<slug>/" />` eklenmesi ve `styles.css` /
-   `app.js` referanslarının **kök-mutlak** (`/styles.css`, `/app.js`) olarak
-   yazılması. `<base>` etiketi olmadan `app.js`'in göreli `fetch("menu.json")`
-   isteği, Firebase Hosting'in `trailingSlash: false` ayarı yüzünden
-   (`/slug/` → `/slug` yönlendirmesi) yanlışlıkla kök menüyü çekebilir; bu
-   yüzden bu etiket **zorunludur**.
-3. (İsteğe bağlı) `public/<slug>/qr.html` — kök `qr.html`'in aynı `<base>`
-   düzeltmesiyle kopyası.
+   `categories` verisiyle oluşturulur (mevcut bir işletmenin `menu.json`'u ile
+   aynı şema).
+2. `public/<slug>/index.html` — mevcut bir işletmenin `index.html`'inin
+   kopyası; `<head>` içinde `<base href="/<slug>/" />` bulunmalı, `styles.css`
+   / `app.js` referansları **kök-mutlak** (`/styles.css`, `/app.js`) olmalı.
+   `<base>` etiketi olmadan `app.js`'in göreli `fetch("menu.json")` isteği,
+   Firebase Hosting'in `trailingSlash: false` ayarı yüzünden (`/slug/` →
+   `/slug` yönlendirmesi) yanlışlıkla hub sayfasının bulunduğu köke gidebilir;
+   bu yüzden bu etiket **zorunludur**.
+3. `public/<slug>/qr.html` — mevcut bir işletmenin `qr.html`'inin aynı
+   `<base>` düzeltmesiyle kopyası (opsiyonel ama tutarlılık için önerilir).
 4. Kendi QR kodunu üretin:
    ```bash
    npm run generate-qr -- https://menu.collectivebucket.com/<slug>/ <slug>-qr
    ```
-   Bu, `public/assets/<slug>-qr.png` ve `.svg` dosyalarını üretir.
-5. `npm run deploy` — aynı site/target üzerinden tüm işletmeler tek seferde
+   Bu, `public/assets/<slug>-qr.png` ve `.svg` dosyalarını üretir; hub
+   sayfası bu dosya adını otomatik olarak kullanır (adım 5'e bkz.).
+5. `public/businesses.json`'a `{ "slug": "...", "name": "...", "tagline": "..." }`
+   kaydını ekleyin — hub sayfası (`index.html` + `hub.js`) bu dosyayı okuyup
+   kart + QR kodunu otomatik olarak listeler, hub HTML'ini elle değiştirmeye
+   gerek yoktur.
+6. `npm run deploy` — aynı site/target üzerinden tüm işletmeler tek seferde
    yayınlanır, ekstra Firebase site/subdomain/DNS adımı gerekmez.
 
 > Bu yaklaşım, işletme sayısı arttıkça (yönetim paneli olmadan) sürdürmesi
-> zorlaşır — her yeni işletme elle bir klasör + JSON gerektirir. 2. etapta
-> (yönetici paneli) bu, bir veritabanı ve dinamik `slug` routing'e evrilecek.
+> zorlaşır — her yeni işletme elle bir klasör + JSON + `businesses.json`
+> kaydı gerektirir. 2. etapta (yönetici paneli) bu, bir veritabanı ve dinamik
+> `slug` routing'e evrilecek.
 
 ### 8. Gelecek repolar için şablon (auth, blog, board...)
 
@@ -269,38 +289,40 @@ https://menu.collectivebucket.com   (custom domain bağlandıktan sonra)
 
 ## QR Kod Üretme
 
-Deploy sonrası gerçek URL ile (custom domain bağlandıktan sonra tercihen
-`menu.collectivebucket.com` kullanın):
+Her işletmenin kendi QR kodu vardır ve doğrudan o işletmenin menü adresini
+hedefler (custom domain bağlandıktan sonra tercihen `menu.collectivebucket.com`
+kullanın):
 
 ```bash
-npm run generate-qr -- https://menu.collectivebucket.com
+npm run generate-qr -- https://menu.collectivebucket.com/ya-basta/ ya-basta-qr
+npm run generate-qr -- https://menu.collectivebucket.com/natural-life/ natural-life-qr
 ```
 
-Bu komut `public/assets/qr.png` ve `public/assets/qr.svg` dosyalarını
-üretir. QR görseli menüye dahil olduğu için tekrar deploy edin:
+Bu komutlar `public/assets/<slug>-qr.png` ve `.svg` dosyalarını üretir; hub
+sayfası (`/`) bu dosyaları `businesses.json`'daki `slug` alanına göre otomatik
+gösterir. QR görselleri menüye dahil olduğu için tekrar deploy edin:
 
 ```bash
 npm run deploy
 ```
 
-Artık `https://menu.collectivebucket.com/qr.html` adresinde "Bizi Tarayın"
-sayfası, QR kodu ile birlikte görüntülenebilir.
-
 ## Test Etme
 
-1. `https://menu.collectivebucket.com/qr.html` sayfasını bir bilgisayar/tablet
-   ekranında açın (ya da QR görselini yazdırın).
-2. Telefonunuzun kamerasıyla QR kodu okutun.
-3. Kamera, `https://menu.collectivebucket.com/index.html` adresini açmalı ve
-   menü görünmelidir.
+1. `https://menu.collectivebucket.com/` (hub sayfası) bir bilgisayar/tablet
+   ekranında açın — burada tüm işletmelerin QR kodları listelenir (ya da tek
+   bir işletmenin `qr.html` sayfasını, örn. `.../ya-basta/qr.html`, ayrıca
+   yazdırabilirsiniz).
+2. Telefonunuzun kamerasıyla ilgili QR kodu okutun.
+3. Kamera, `https://menu.collectivebucket.com/<slug>/` adresini açmalı ve o
+   işletmenin menüsü görünmelidir.
 
 ## Menü İçeriğini Değiştirme
 
-`public/menu.json` dosyasını düzenleyip yeniden `npm run deploy` çalıştırmanız
-yeterlidir — build adımı yoktur (ya da sadece `main`'e push edin, CI/CD
-otomatik deploy eder). Bu dosyanın şeması, ileride eklenecek yönetim paneli
-(2. Etap) tarafından üretilecek çıktıyla uyumlu olacak şekilde
-tasarlanmıştır.
+İlgili işletmenin `public/<slug>/menu.json` dosyasını düzenleyip yeniden
+`npm run deploy` çalıştırmanız yeterlidir — build adımı yoktur (ya da sadece
+`main`'e push edin, CI/CD otomatik deploy eder). Bu dosyanın şeması, ileride
+eklenecek yönetim paneli (2. Etap) tarafından üretilecek çıktıyla uyumlu
+olacak şekilde tasarlanmıştır.
 
 ## Maliyet
 

@@ -1,0 +1,14 @@
+{
+  "businesses": [
+    {
+      "slug": "ya-basta",
+      "name": "Ya Basta",
+      "tagline": "otro mundo es posible"
+    },
+    {
+      "slug": "natural-life",
+      "name": "Natural Life",
+      "tagline": ""
+    }
+  ]
+}
