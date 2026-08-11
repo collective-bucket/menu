@@ -1,0 +1,54 @@
+/* Natural Life'a özel tema — glamping/tatil köyü web sitesindeki kimlikten
+   esinlenilmiştir: krem/bej zemin, koyu yeşilimsi-siyah metin, logodaki
+   zeytin/orman yeşili vurgu rengi ve nokta ile ayrılmış büyük harfli
+   "NATURAL · LIFE" başlık tipografisi. Sadece bu işletmenin index.html/qr.html'i
+   tarafından, paylaşılan styles.css'ten SONRA yüklenir; diğer işletkileri etkilemez. */
+:root {
+  --color-bg: #faf8f4;
+  --color-text: #1d2418;
+  --color-muted: #8a8478;
+  --color-accent: #5b6b4f;
+  --color-card-bg: #ffffff;
+  --color-border: #e8e3d8;
+}
+
+body {
+  background: linear-gradient(180deg, #ffffff 0%, var(--color-bg) 220px);
+}
+
+.site-header h1 {
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.site-header h1::before {
+  content: "· ";
+  color: var(--color-accent);
+}
+
+.site-header h1::after {
+  content: " ·";
+  color: var(--color-accent);
+}
+
+.tagline {
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  color: var(--color-muted);
+}
+
+.category h2 {
+  border-bottom-color: var(--color-accent);
+}
+
+.category-nav a:hover,
+.category-nav a:focus-visible {
+  border-color: var(--color-accent);
+}
+
+.specials {
+  border-color: var(--color-accent);
+  background: #f4f1e8;
+}

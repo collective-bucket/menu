@@ -1,0 +1,50 @@
+/* Ya Basta'ya özel tema — paylaşılan Instagram görselindeki kamp/doğa
+   kimliğinden esinlenilmiştir: krem/parşömen zemin, koyu kahverengi metin,
+   orman yeşili vurgu, kırmızı yıldızlarla çevrili logo. Sadece bu işletmenin
+   index.html/qr.html'i tarafından, paylaşılan styles.css'ten SONRA yüklenir;
+   diğer işletmeleri etkilemez. */
+:root {
+  --color-bg: #f2ead9;
+  --color-text: #2b1c12;
+  --color-muted: #7a6a52;
+  --color-accent: #3f6b4a;
+  --color-card-bg: #fffdf8;
+  --color-border: #ddd0b0;
+}
+
+body {
+  background: radial-gradient(ellipse at top, #e4ecda 0%, var(--color-bg) 55%);
+}
+
+.site-header h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.site-header h1::before {
+  content: "★ ";
+  color: #b8302a;
+}
+
+.site-header h1::after {
+  content: " ★";
+  color: #b8302a;
+}
+
+.tagline {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  color: #8a6d3b;
+}
+
+.category h2 {
+  border-bottom-color: var(--color-accent);
+}
+
+.specials {
+  border-color: var(--color-accent);
+  background: #f7f2e4;
+}
