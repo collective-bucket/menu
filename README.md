@@ -13,12 +13,16 @@ kullanılabilir.
 ## İçerik
 
 - `public/index.html`, `public/styles.css`, `public/app.js` — mobil öncelikli
-  menü sayfası. `app.js`, `menu.json`'u okuyup sayfayı oluşturur.
-- `public/menu.json` — örnek/mock menü verisi (kategoriler, ürünler, fiyatlar).
+  menü sayfası (Ya Basta). `app.js`, `menu.json`'u okuyup sayfayı oluşturur;
+  `styles.css`/`app.js` tüm işletmeler arasında paylaşılır.
+- `public/menu.json` — Ya Basta'nın menü verisi (kategoriler, ürünler, fiyatlar).
+- `public/natural-life/` — ikinci bir işletmenin (Natural Life) menüsü;
+  `menu.collectivebucket.com/natural-life/` adresinde yayınlanır. Bkz.
+  "Aynı site altında ikinci bir işletme/menü ekleme" bölümü.
 - `public/qr.html` — demo sırasında gösterilebilecek "Bizi Tarayın" sayfası,
   üretilen QR görselini gösterir.
-- `scripts/generate-qr.js` — verilen bir URL için `public/assets/qr.png` ve
-  `qr.svg` üretir.
+- `scripts/generate-qr.js` — verilen bir URL (ve isteğe bağlı çıktı adı) için
+  `public/assets/<ad>.png` ve `.svg` üretir.
 - `firebase.json`, `.firebaserc` — Firebase Hosting yapılandırması
   (`collective-bucket-apps` projesi, `menu` target'ı, `cb-menu` site'ı).
 - `.github/workflows/` — main'e push'ta otomatik deploy ve PR'larda otomatik
@@ -195,10 +199,46 @@ ayrı bir preview linki üretilip PR'a yorum olarak eklenir.
 > action'ına dönülebilir — mimari değişmez, sadece kimlik doğrulama adımı
 > değişir.
 
-### 7. Gelecek repolar için şablon (auth, blog, board...)
+### 7. Aynı site altında ikinci bir işletme/menü ekleme (multi-tenant, DB'siz)
 
-Her yeni demo repo için aynı adımları tekrarlayın, sadece isimleri
-değiştirin:
+Bu repo tek bir işletmeye (Ya Basta) değil, aynı `cb-menu` sitesine bağlı
+**birden çok işletmeye** de hizmet verebilir — hâlâ veritabanı veya yönetim
+paneli olmadan. Her işletme, `public/` altında kendi klasörüne (slug) sahip
+olur ve `app.js` / `styles.css` kodunu paylaşır, sadece kendi `menu.json`'unu
+kullanır. Örnek: `public/natural-life/` klasörü, `menu.collectivebucket.com/natural-life/`
+adresinde ikinci bir işletmenin (Natural Life) menüsünü sunar.
+
+Yeni bir işletme eklemek için:
+
+1. `public/<slug>/menu.json` — o işletmenin `business` bilgisi ve
+   `categories` verisiyle oluşturulur (kök `menu.json` ile aynı şema).
+2. `public/<slug>/index.html` — kök `index.html`'in kopyası; tek fark,
+   `<head>` içine `<base href="/<slug>/" />` eklenmesi ve `styles.css` /
+   `app.js` referanslarının **kök-mutlak** (`/styles.css`, `/app.js`) olarak
+   yazılması. `<base>` etiketi olmadan `app.js`'in göreli `fetch("menu.json")`
+   isteği, Firebase Hosting'in `trailingSlash: false` ayarı yüzünden
+   (`/slug/` → `/slug` yönlendirmesi) yanlışlıkla kök menüyü çekebilir; bu
+   yüzden bu etiket **zorunludur**.
+3. (İsteğe bağlı) `public/<slug>/qr.html` — kök `qr.html`'in aynı `<base>`
+   düzeltmesiyle kopyası.
+4. Kendi QR kodunu üretin:
+   ```bash
+   npm run generate-qr -- https://menu.collectivebucket.com/<slug>/ <slug>-qr
+   ```
+   Bu, `public/assets/<slug>-qr.png` ve `.svg` dosyalarını üretir.
+5. `npm run deploy` — aynı site/target üzerinden tüm işletmeler tek seferde
+   yayınlanır, ekstra Firebase site/subdomain/DNS adımı gerekmez.
+
+> Bu yaklaşım, işletme sayısı arttıkça (yönetim paneli olmadan) sürdürmesi
+> zorlaşır — her yeni işletme elle bir klasör + JSON gerektirir. 2. etapta
+> (yönetici paneli) bu, bir veritabanı ve dinamik `slug` routing'e evrilecek.
+
+### 8. Gelecek repolar için şablon (auth, blog, board...)
+
+Bu, farklı bir **uygulama** (Natural Life gibi ikinci bir işletme değil, auth/
+blog/board gibi tamamen ayrı bir demo) eklemek için geçerlidir — her biri
+kendi Firebase site'ına ve subdomain'ine sahiptir. Aynı adımları
+tekrarlayın, sadece isimleri değiştirin:
 
 ```bash
 npx firebase hosting:sites:create cb-auth

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Bu sayfa /natural-life yolunda (sondaki / olsun ya da olmasın) doğru
+       çalışsın diye base href sabitlendi; aksi halde app.js'in "menu.json"
+       göreli isteği yanlışlıkla köke (Ya Basta menüsüne) gidebilir. -->
+  <base href="/natural-life/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Natural Life | Menü</title>
+  <meta name="description" content="Natural Life - QR ile açılan dijital menü" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1 id="business-name">Menü yükleniyor...</h1>
+    <p id="business-tagline" class="tagline"></p>
+  </header>
+
+  <nav id="category-nav" class="category-nav" aria-label="Kategoriler"></nav>
+
+  <main id="menu-content" class="menu-content">
+    <p class="loading">Menü yükleniyor...</p>
+  </main>
+
+  <footer class="site-footer">
+    <p>Bu bir demo menüdür.</p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

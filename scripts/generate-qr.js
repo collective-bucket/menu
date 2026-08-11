@@ -4,9 +4,13 @@
 /**
  * Verilen bir URL için QR kod üretir (PNG + SVG).
  * Kullanım:
- *   node scripts/generate-qr.js https://<proje-id>.web.app
+ *   node scripts/generate-qr.js <menu-url> [çıktı-adı]
  *   veya
- *   npm run generate-qr -- https://<proje-id>.web.app
+ *   npm run generate-qr -- <menu-url> [çıktı-adı]
+ *
+ * [çıktı-adı] verilmezse "qr" kullanılır (public/assets/qr.png|svg).
+ * Birden fazla işletme/menü varsa her biri için farklı bir isim verin,
+ * örn: npm run generate-qr -- https://menu.collectivebucket.com/natural-life/ natural-life-qr
  */
 
 const fs = require("fs");
@@ -14,16 +18,18 @@ const path = require("path");
 const QRCode = require("qrcode");
 
 const url = process.argv[2];
+const outName = process.argv[3] || "qr";
 
 if (!url) {
-  console.error("Kullanım: node scripts/generate-qr.js <menu-url>");
+  console.error("Kullanım: node scripts/generate-qr.js <menu-url> [çıktı-adı]");
   console.error("Örnek:   node scripts/generate-qr.js https://ornek-proje.web.app");
+  console.error("Örnek:   node scripts/generate-qr.js https://ornek-proje.web.app/natural-life/ natural-life-qr");
   process.exit(1);
 }
 
 const outDir = path.join(__dirname, "..", "public", "assets");
-const pngPath = path.join(outDir, "qr.png");
-const svgPath = path.join(outDir, "qr.svg");
+const pngPath = path.join(outDir, outName + ".png");
+const svgPath = path.join(outDir, outName + ".svg");
 
 fs.mkdirSync(outDir, { recursive: true });
 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <base href="/natural-life/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Natural Life | Bizi Tarayın</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .qr-wrap {
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .qr-wrap img {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      background: #fff;
+      padding: 16px;
+    }
+    .qr-wrap p.hint {
+      color: var(--color-muted);
+      font-size: 0.9rem;
+      margin-top: 16px;
+    }
+    .qr-wrap a.menu-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--color-accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Bizi Tarayın</h1>
+    <p class="tagline">Menüyü görüntülemek için telefon kameranızla QR kodu okutun</p>
+  </header>
+
+  <div class="qr-wrap">
+    <img src="/assets/natural-life-qr.png" alt="Natural Life menüsüne giden QR kod" />
+    <p class="hint">
+      QR kod, <code>npm run generate-qr -- &lt;url&gt; natural-life-qr</code>
+      komutu ile üretilir. Henüz üretilmediyse bu görsel görünmeyebilir.
+    </p>
+    <a class="menu-link" href="index.html">Menüyü doğrudan aç →</a>
+  </div>
+
+  <footer class="site-footer">
+    <p>Bu bir demo sayfasıdır.</p>
+  </footer>
+</body>
+</html>
