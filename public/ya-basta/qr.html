@@ -28,11 +28,14 @@
       margin-top: 16px;
     }
     .qr-wrap a.menu-link {
-      display: inline-block;
-      margin-top: 20px;
+      display: block;
+      margin-top: 14px;
       color: var(--color-accent);
       text-decoration: none;
       font-size: 0.9rem;
+    }
+    .qr-wrap a.menu-link:first-of-type {
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -49,12 +52,13 @@
       komutu ile üretilir. Henüz üretilmediyse bu görsel görünmeyebilir.
     </p>
     <a class="menu-link" href="/ya-basta/">Menüyü doğrudan aç →</a>
+    <a class="menu-link" href="/assets/ya-basta-qr.png" download="ya-basta-qr.png">QR kodu indir ↓</a>
   </div>
 
   <footer class="site-footer">
     <p>Bu bir demo sayfasıdır.</p>
     <div class="site-footer-links">
-      <a href="/">← Tüm Menüler (menu.collectivebucket.com)</a>
+      <a href="/">← Tüm Menüler</a>
       <a href="https://collectivebucket.com" target="_blank" rel="noopener">
         <img src="/assets/collective-bucket-logo.png" alt="" />
         <span>collectivebucket.com</span>

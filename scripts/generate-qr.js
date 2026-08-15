@@ -36,7 +36,9 @@ fs.mkdirSync(outDir, { recursive: true });
 const options = {
   errorCorrectionLevel: "M",
   margin: 2,
-  width: 512,
+  // Baskıya uygun yüksek çözünürlük (indirilen QR kodun keskin görünmesi için).
+  // Ekranda küçük gösterilse de indirme linki bu dosyaya işaret eder.
+  width: 1200,
   color: {
     dark: "#2b2320",
     light: "#ffffffff"
