@@ -1,10 +1,14 @@
+/* Collective Bucket ortak açık tema — main reposundakiyle aynı pastel mint
+   palet. Varsayılan değerlerdir; bir işletmenin kendi theme.css'i (örn.
+   natural-life, ya-basta) bunları ezerse o işletme kendi kimliğini korur. */
 :root {
-  --color-bg: #fdfaf6;
-  --color-text: #2b2320;
-  --color-muted: #7a6f66;
-  --color-accent: #b45309;
+  --color-bg: #fbfbfa;
+  --color-text: #191c1a;
+  --color-muted: #565c59;
+  --color-accent: #2f9a7c;
+  --color-soft: #eafbf5;
   --color-card-bg: #ffffff;
-  --color-border: #ece3d8;
+  --color-border: #e4e7e5;
   --max-width: 640px;
 }
 
@@ -134,7 +138,7 @@ body {
   padding: 16px 18px;
   border: 2px dashed var(--color-accent);
   border-radius: 12px;
-  background: #fff8ef;
+  background: var(--color-soft);
 }
 
 .specials h2 {
@@ -244,4 +248,32 @@ body {
   padding: 20px 16px 32px;
   color: var(--color-muted);
   font-size: 0.75rem;
+}
+
+.site-footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.site-footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-muted);
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.site-footer-links a:hover {
+  color: var(--color-accent);
+}
+
+.site-footer-links img {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
 }
