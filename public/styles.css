@@ -56,6 +56,11 @@ body.menu-page {
   font-weight: 700;
 }
 
+.site-header h1.is-loading::before,
+.site-header h1.is-loading::after {
+  content: none;
+}
+
 .tagline {
   margin: 6px 0 0;
   color: var(--color-muted);
@@ -66,13 +71,9 @@ body.menu-page {
   position: sticky;
   top: 0;
   z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
   width: 100%;
   margin: 0;
-  padding: 8px 16px 28px;
+  padding: 8px 0 28px;
   background: linear-gradient(
     180deg,
     var(--step-nav-from) 0%,
@@ -83,6 +84,17 @@ body.menu-page {
 
 .step-nav[hidden] {
   display: none;
+}
+
+.step-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
 .step-back {

@@ -192,6 +192,9 @@
 
     navEl.hidden = false;
 
+    var inner = document.createElement("div");
+    inner.className = "step-nav-inner";
+
     var back = document.createElement("button");
     back.type = "button";
     back.className = "step-back";
@@ -201,14 +204,16 @@
     back.addEventListener("click", function () {
       setHash(state.path.slice(0, -1));
     });
-    navEl.appendChild(back);
+    inner.appendChild(back);
 
     var title = document.createElement("h2");
     title.className = "step-title";
     var current = trail[trail.length - 1];
     title.textContent = current.name || "";
     if (current.lang) title.lang = current.lang;
-    navEl.appendChild(title);
+    inner.appendChild(title);
+
+    navEl.appendChild(inner);
   }
 
   function syncedPath(trail) {
@@ -256,6 +261,7 @@
     var nameEl = document.getElementById("business-name");
     var taglineEl = document.getElementById("business-tagline");
     nameEl.textContent = business.name || "Menü";
+    nameEl.classList.remove("is-loading");
     taglineEl.textContent = business.tagline || "";
     if (business.lang) nameEl.lang = business.lang;
     else nameEl.removeAttribute("lang");
