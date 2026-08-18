@@ -5,6 +5,7 @@
   "description": "Basit, statik ve ücretsiz bir QR menü demosu (Firebase Hosting).",
   "scripts": {
     "generate-qr": "node scripts/generate-qr.js",
+    "stamp": "node scripts/stamp-assets.js",
     "serve": "npx firebase-tools emulators:start --only hosting",
     "deploy": "npx firebase-tools deploy --only hosting:menu"
   },
