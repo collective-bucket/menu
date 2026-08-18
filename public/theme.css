@@ -121,6 +121,14 @@ body {
   font-size: 16px;
 }
 
+.hero-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 /* ---------- Footer (main ile aynı) ---------- */
 
 footer {
