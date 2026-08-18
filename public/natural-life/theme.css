@@ -10,6 +10,7 @@
   --color-accent: #5b6b4f;
   --color-card-bg: #ffffff;
   --color-border: #e8e3d8;
+  --color-soft: #eef2e8;
 }
 
 body {
@@ -39,13 +40,26 @@ body {
   color: var(--color-muted);
 }
 
-.category h2 {
-  border-bottom-color: var(--color-accent);
+.step-nav {
+  background: transparent;
 }
 
-.category-nav a:hover,
-.category-nav a:focus-visible {
-  border-color: var(--color-accent);
+.step-title {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.menu-card:hover,
+.menu-card:focus-visible {
+  box-shadow: 0 10px 22px -14px rgba(91, 107, 79, 0.4);
+}
+
+.menu-card-thumb {
+  background: #eef2e8;
+}
+
+.category h2 {
+  border-bottom-color: var(--color-accent);
 }
 
 .specials {

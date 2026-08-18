@@ -228,33 +228,32 @@ ve `.../natural-life/` adreslerinde yayınlanır.
 Yeni bir işletme eklemek için:
 
 1. `public/<slug>/menu.json` — o işletmenin `business` bilgisi ve
-   `categories` verisiyle oluşturulur (mevcut bir işletmenin `menu.json`'u ile
-   aynı şema).
+   `menu` ağacıyla oluşturulur. Şablon için `public/menu-template.json`
+   dosyasına bakın. Kural:
+   - `children` varsa bir sonraki ekranda kartlar açılır
+   - `products` varsa ürün listesi (ad, fiyat, opsiyonel açıklama) gösterilir
+   İkonlar `app.js` içindeki tek renk SVG setinden okunur (`drink`, `food`,
+   `beer`, `wine`, `burger` vb.).
 2. `public/<slug>/index.html` — mevcut bir işletmenin `index.html`'inin
    kopyası; `styles.css` / `app.js` / `theme.css` referansları **kök-mutlak**
    olmalı (`/styles.css`, `/app.js`, `/<slug>/theme.css`). Daha önce bunun
    yerine `<base href="/<slug>/" />` kullanılıyordu, ancak bu etiket, Firebase
    Hosting'in `trailingSlash: false` ayarı yüzünden (`/slug/` → `/slug`
-   yönlendirmesi) adres çubuğundaki gerçek URL ile uyuşmuyordu; bu da
-   `href="#kategori"` gibi sayfa-içi anchor linklerinin "aynı sayfa" olarak
-   tanınmamasına ve tıklanınca tam sayfa yeniden yüklenmesine yol açıyordu.
-   Bu yüzden `<base>` kaldırıldı: tüm statik referanslar kök-mutlak yapıldı,
-   `app.js` ise `menu.json`'u `window.location.pathname`'e göre (sondaki `/`
-   olsun ya da olmasın) kendisi hesaplıyor (`resolveMenuUrl()`).
-3. `public/<slug>/qr.html` — mevcut bir işletmenin `qr.html`'inin, aynı
-   şekilde kök-mutlak referanslarla (`/styles.css`, `/<slug>/theme.css`,
-   `/<slug>/` menü linki) kopyası.
-4. Kendi QR kodunu üretin:
+   yönlendirmesi) adres çubuğundaki gerçek URL ile uyuşmuyordu. Bu yüzden
+   `<base>` kaldırıldı: tüm statik referanslar kök-mutlak yapıldı, `app.js`
+   ise `menu.json`'u `window.location.pathname`'e göre (sondaki `/` olsun ya
+   da olmasın) kendisi hesaplıyor (`resolveMenuUrl()`).
+3. Kendi QR kodunu üretin:
    ```bash
    npm run generate-qr -- https://menu.collectivebucket.com/<slug>/ <slug>-qr
    ```
    Bu, `public/assets/<slug>-qr.png` ve `.svg` dosyalarını üretir; hub
-   sayfası bu dosya adını otomatik olarak kullanır (adım 5'e bkz.).
-5. `public/businesses.json`'a `{ "slug": "...", "name": "...", "tagline": "..." }`
+   sayfası bu dosya adını otomatik olarak kullanır (adım 4'e bkz.).
+4. `public/businesses.json`'a `{ "slug": "...", "name": "...", "tagline": "..." }`
    kaydını ekleyin — hub sayfası (`index.html` + `hub.js`) bu dosyayı okuyup
    kart + QR kodunu otomatik olarak listeler, hub HTML'ini elle değiştirmeye
    gerek yoktur.
-6. `npm run deploy` — aynı site/target üzerinden tüm işletmeler tek seferde
+5. `npm run deploy` — aynı site/target üzerinden tüm işletmeler tek seferde
    yayınlanır, ekstra Firebase site/subdomain/DNS adımı gerekmez.
 
 > Bu yaklaşım, işletme sayısı arttıkça (yönetim paneli olmadan) sürdürmesi

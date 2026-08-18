@@ -10,6 +10,7 @@
   --color-accent: #3f6b4a;
   --color-card-bg: #fffdf8;
   --color-border: #ddd0b0;
+  --color-soft: #e8f0dc;
 }
 
 body {
@@ -38,6 +39,24 @@ body {
   font-family: Georgia, "Times New Roman", serif;
   font-style: italic;
   color: #8a6d3b;
+}
+
+.step-nav {
+  background: transparent;
+}
+
+.step-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+}
+
+.menu-card:hover,
+.menu-card:focus-visible {
+  box-shadow: 0 10px 22px -14px rgba(63, 107, 74, 0.4);
+}
+
+.menu-card-thumb {
+  background: #e8f0dc;
 }
 
 .category h2 {

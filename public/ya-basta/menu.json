@@ -4,73 +4,80 @@
     "tagline": "",
     "currency": "₺"
   },
-  "categories": [
+  "menu": [
     {
-      "icon": "🍺",
-      "name": "Bira",
-      "items": [
-        { "name": "Tuborg", "price": 200 },
-        { "name": "Carlsberg", "price": 250 },
-        { "name": "Filtresiz", "price": 250 },
-        { "name": "Özel Seri", "price": 250 },
-        { "name": "Beck's", "price": 300 },
-        { "name": "Corona", "price": 300 },
-        { "name": "Miller", "price": 300 },
-        { "name": "Frederick India Pale Ale", "price": 350 },
-        { "name": "Frederick Yekünde", "price": 350 },
-        { "name": "Guinness", "price": 350 },
-        { "name": "Efes Special", "price": 250 }
-      ]
-    },
-    {
-      "icon": "🍷",
-      "name": "Kadeh",
-      "items": [
-        { "name": "Gin", "price": 350 },
-        { "name": "Vodka", "price": 350 },
-        { "name": "Kadeh Rakı", "price": 300 },
-        { "name": "Jameson", "price": 500 },
-        { "name": "Black Label", "price": 500 },
-        { "name": "Jim Beam", "price": 450 },
-        { "name": "Jack Daniel's", "price": 500 },
-        { "name": "Tekirdağ Rakı", "price": 400 },
-        { "name": "Tekirdağ Blue", "price": 450 },
-        { "name": "Duble Rakı", "price": 550 }
-      ]
-    },
-    {
-      "icon": "🥤",
-      "name": "Soft",
-      "items": [
-        { "name": "Su", "price": 30 },
-        { "name": "Büyük Su (1 L)", "price": 50 },
-        { "name": "Soft Drink", "price": 100 },
-        { "name": "Limonata", "price": 200 },
-        { "name": "Sıkma Portakal Suyu", "price": 200 },
-        { "name": "Soda", "price": 80 },
-        { "name": "Çörçil", "price": 100 },
-        { "name": "Alkolsüz Kokteyl", "price": 250 }
-      ]
-    },
-    {
-      "icon": "☕",
-      "name": "Sıcak İçecekler",
-      "items": [
-        { "name": "Çay", "price": 50 },
-        { "name": "Bitki Çayı", "price": 100 },
-        { "name": "Filtre Kahve", "price": 150 },
-        { "name": "Türk Kahvesi", "price": 150 },
-        { "name": "Ice Coffee", "price": 200 }
-      ]
-    },
-    {
-      "icon": "🍸",
-      "name": "Kokteyl",
-      "groups": [
+      "id": "icecek",
+      "name": "İçecek",
+      "icon": "drink",
+      "children": [
         {
-          "name": "International",
+          "id": "bira",
+          "name": "Bira",
+          "icon": "beer",
+          "products": [
+            { "name": "Tuborg", "price": 200 },
+            { "name": "Carlsberg", "price": 250 },
+            { "name": "Filtresiz", "price": 250 },
+            { "name": "Özel Seri", "price": 250 },
+            { "name": "Beck's", "price": 300 },
+            { "name": "Corona", "price": 300 },
+            { "name": "Miller", "price": 300 },
+            { "name": "Frederick India Pale Ale", "price": 350 },
+            { "name": "Frederick Yekünde", "price": 350 },
+            { "name": "Guinness", "price": 350 },
+            { "name": "Efes Special", "price": 250 }
+          ]
+        },
+        {
+          "id": "kadeh",
+          "name": "Kadeh",
+          "icon": "wine",
+          "products": [
+            { "name": "Gin", "price": 350 },
+            { "name": "Vodka", "price": 350 },
+            { "name": "Kadeh Rakı", "price": 300 },
+            { "name": "Jameson", "price": 500 },
+            { "name": "Black Label", "price": 500 },
+            { "name": "Jim Beam", "price": 450 },
+            { "name": "Jack Daniel's", "price": 500 },
+            { "name": "Tekirdağ Rakı", "price": 400 },
+            { "name": "Tekirdağ Blue", "price": 450 },
+            { "name": "Duble Rakı", "price": 550 }
+          ]
+        },
+        {
+          "id": "soft",
+          "name": "Soft",
+          "icon": "soft",
+          "products": [
+            { "name": "Su", "price": 30 },
+            { "name": "Büyük Su (1 L)", "price": 50 },
+            { "name": "Soft Drink", "price": 100 },
+            { "name": "Limonata", "price": 200 },
+            { "name": "Sıkma Portakal Suyu", "price": 200 },
+            { "name": "Soda", "price": 80 },
+            { "name": "Çörçil", "price": 100 },
+            { "name": "Alkolsüz Kokteyl", "price": 250 }
+          ]
+        },
+        {
+          "id": "sicak-icecekler",
+          "name": "Sıcak İçecekler",
+          "icon": "coffee",
+          "products": [
+            { "name": "Çay", "price": 50 },
+            { "name": "Bitki Çayı", "price": 100 },
+            { "name": "Filtre Kahve", "price": 150 },
+            { "name": "Türk Kahvesi", "price": 150 },
+            { "name": "Ice Coffee", "price": 200 }
+          ]
+        },
+        {
+          "id": "kokteyl",
+          "name": "Kokteyl",
+          "icon": "cocktail",
           "lang": "en",
-          "items": [
+          "products": [
             { "name": "Margarita", "price": 500 },
             { "name": "Negroni", "price": 600 },
             { "name": "Whiskey Sour", "price": 450 },
@@ -84,91 +91,107 @@
           ]
         },
         {
+          "id": "special",
           "name": "Special",
+          "icon": "special",
           "lang": "en",
-          "items": [
+          "products": [
             { "name": "Kiwi Love", "price": 550 },
             { "name": "Watermelon Dream", "price": 550 },
             { "name": "Lemon Spring", "price": 550 },
             { "name": "Wine Love", "price": 550 },
             { "name": "Sabasta Special", "price": 550 }
           ]
+        },
+        {
+          "id": "shot",
+          "name": "Shot",
+          "icon": "shot",
+          "products": [
+            { "name": "Viski Shot", "price": 350 },
+            { "name": "Tekila Shot", "price": 300 },
+            { "name": "Jägermeister", "price": 300 },
+            { "name": "Likör", "price": 250 },
+            { "name": "Fireball", "price": 250 },
+            { "name": "Skinos", "price": 250 },
+            { "name": "Smirnoff North", "price": 250 },
+            { "name": "Kokteyl Shot", "price": 300 },
+            { "name": "Jack Honey", "price": 300 }
+          ]
         }
       ]
     },
     {
-      "icon": "🥃",
-      "name": "Shot",
-      "items": [
-        { "name": "Viski Shot", "price": 350 },
-        { "name": "Tekila Shot", "price": 300 },
-        { "name": "Jägermeister", "price": 300 },
-        { "name": "Likör", "price": 250 },
-        { "name": "Fireball", "price": 250 },
-        { "name": "Skinos", "price": 250 },
-        { "name": "Smirnoff North", "price": 250 },
-        { "name": "Kokteyl Shot", "price": 300 },
-        { "name": "Jack Honey", "price": 300 }
-      ]
-    },
-    {
-      "icon": "🍳",
-      "name": "Kahvaltılık",
-      "items": [
-        { "name": "Kahvaltı Tabağı", "price": 500 },
-        { "name": "Kaşarlı Tost", "price": 300 },
-        { "name": "Sucuklu Tost", "price": 300 },
-        { "name": "Karışık Tost", "price": 400 },
-        { "name": "Omlet", "price": 300 },
-        { "name": "Menemen", "price": 350 }
-      ]
-    },
-    {
-      "icon": "🌯",
-      "name": "Wrap",
-      "items": [
-        { "name": "Tavuk Wrap", "price": 450 },
-        { "name": "Köfte Wrap", "price": 500 },
-        { "name": "Sebzeli Wrap", "price": 450 }
-      ]
-    },
-    {
-      "icon": "🥗",
-      "name": "Salata",
-      "items": [
-        { "name": "Ton Balıklı Salata", "price": 400 },
-        { "name": "Peynirli Salata", "price": 400 },
-        { "name": "Çoban Salata", "price": 300 }
-      ]
-    },
-    {
-      "icon": "🍟",
-      "name": "Atıştırmalık",
-      "items": [
-        { "name": "Patates", "price": 250 },
-        { "name": "Bira Tabağı", "price": 500 },
-        { "name": "Peynir Tabağı", "price": 400 },
-        { "name": "Meyve Tabağı", "price": 400 },
-        { "name": "Çerez", "price": 200 },
-        { "name": "Turşu", "price": 250 }
-      ]
-    },
-    {
-      "icon": "🍔",
-      "name": "Hamburger",
-      "items": [
-        { "name": "Hamburger", "price": 500 },
-        { "name": "Cheeseburger", "price": 550 },
-        { "name": "Vegan Burger", "price": 500 }
-      ]
-    },
-    {
-      "icon": "🍝",
-      "name": "Makarna",
-      "items": [
-        { "name": "Penne Arrabbiata", "price": 400 },
-        { "name": "Penne Napolitana", "price": 400 },
-        { "name": "Penne Ton Balıklı", "price": 400 }
+      "id": "yiyecek",
+      "name": "Yiyecek",
+      "icon": "food",
+      "children": [
+        {
+          "id": "kahvaltilik",
+          "name": "Kahvaltılık",
+          "icon": "breakfast",
+          "products": [
+            { "name": "Kahvaltı Tabağı", "price": 500 },
+            { "name": "Kaşarlı Tost", "price": 300 },
+            { "name": "Sucuklu Tost", "price": 300 },
+            { "name": "Karışık Tost", "price": 400 },
+            { "name": "Omlet", "price": 300 },
+            { "name": "Menemen", "price": 350 }
+          ]
+        },
+        {
+          "id": "wrap",
+          "name": "Wrap",
+          "icon": "wrap",
+          "products": [
+            { "name": "Tavuk Wrap", "price": 450 },
+            { "name": "Köfte Wrap", "price": 500 },
+            { "name": "Sebzeli Wrap", "price": 450 }
+          ]
+        },
+        {
+          "id": "salata",
+          "name": "Salata",
+          "icon": "salad",
+          "products": [
+            { "name": "Ton Balıklı Salata", "price": 400 },
+            { "name": "Peynirli Salata", "price": 400 },
+            { "name": "Çoban Salata", "price": 300 }
+          ]
+        },
+        {
+          "id": "atistirmalik",
+          "name": "Atıştırmalık",
+          "icon": "fries",
+          "products": [
+            { "name": "Patates", "price": 250 },
+            { "name": "Bira Tabağı", "price": 500 },
+            { "name": "Peynir Tabağı", "price": 400 },
+            { "name": "Meyve Tabağı", "price": 400 },
+            { "name": "Çerez", "price": 200 },
+            { "name": "Turşu", "price": 250 }
+          ]
+        },
+        {
+          "id": "hamburger",
+          "name": "Hamburger",
+          "icon": "burger",
+          "products": [
+            { "name": "Hamburger", "price": 500 },
+            { "name": "Cheeseburger", "price": 550 },
+            { "name": "Vegan Burger", "price": 500 }
+          ]
+        },
+        {
+          "id": "makarna",
+          "name": "Makarna",
+          "icon": "pasta",
+          "products": [
+            { "name": "Penne Arrabbiata", "price": 400 },
+            { "name": "Penne Napolitana", "price": 400 },
+            { "name": "Penne Ton Balıklı", "price": 400 }
+          ]
+        }
       ]
     }
   ]

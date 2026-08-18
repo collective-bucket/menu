@@ -1,0 +1,48 @@
+{
+  "business": {
+    "name": "İşletme Adı",
+    "lang": "tr",
+    "tagline": "Kısa açıklama (opsiyonel)",
+    "currency": "₺"
+  },
+  "menu": [
+    {
+      "id": "icecek",
+      "name": "İçecek",
+      "icon": "drink",
+      "children": [
+        {
+          "id": "ornek-kategori",
+          "name": "Alt Kategori",
+          "icon": "beer",
+          "note": "Opsiyonel not",
+          "products": [
+            {
+              "name": "Ürün adı",
+              "price": 100,
+              "description": "Opsiyonel açıklama"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yiyecek",
+      "name": "Yiyecek",
+      "icon": "food",
+      "children": [
+        {
+          "id": "ornek-yemek",
+          "name": "Yemek Kategorisi",
+          "icon": "burger",
+          "products": [
+            {
+              "name": "Ürün adı",
+              "price": 200
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

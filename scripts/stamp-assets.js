@@ -11,7 +11,7 @@ var version = (
 ).slice(0, 12);
 
 var publicDir = path.join(__dirname, "..", "public");
-var files = ["index.html"];
+var files = ["index.html", "ya-basta/index.html", "natural-life/index.html"];
 
 files.forEach(function (file) {
   var filePath = path.join(publicDir, file);
@@ -22,8 +22,8 @@ files.forEach(function (file) {
     .replace(/((?:src|href)=["'])([^"']*\/assets\/[^"'?\s]+)(?=["'])/g, "$1$2?v=" + version)
     .replace(/(https:\/\/collectivebucket\.com\/assets\/shell\.(?:css|js))\?v=[^"'&\s]*/g, "$1?v=" + version)
     .replace(/(https:\/\/collectivebucket\.com\/assets\/shell\.(?:css|js))(?=["'])/g, "$1?v=" + version)
-    .replace(/(["'])(app\.js|hub\.js|styles\.css|theme\.css)\?v=[^"'&\s]*/g, "$1$2?v=" + version)
-    .replace(/(["'])(app\.js|hub\.js|styles\.css|theme\.css)(?=["'])/g, "$1$2?v=" + version);
+    .replace(/((?:src|href)=["'])([^"']*(?:app\.js|hub\.js|styles\.css|theme\.css))\?v=[^"'&\s]*/g, "$1$2?v=" + version)
+    .replace(/((?:src|href)=["'])([^"']*(?:app\.js|hub\.js|styles\.css|theme\.css))(?=["'])/g, "$1$2?v=" + version);
   fs.writeFileSync(filePath, next);
   console.log("stamped " + file + " -> v=" + version);
 });
