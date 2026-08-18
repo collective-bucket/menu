@@ -10,6 +10,8 @@
   --color-card-bg: #ffffff;
   --color-border: #e4e7e5;
   --max-width: 640px;
+  --step-nav-from: var(--color-bg);
+  --step-nav-mid: var(--color-bg);
 }
 
 * {
@@ -66,12 +68,17 @@ body.menu-page {
   z-index: 5;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: flex-start;
   gap: 10px;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 8px 16px 12px;
-  background: var(--color-bg);
+  width: 100%;
+  margin: 0;
+  padding: 8px 16px 28px;
+  background: linear-gradient(
+    180deg,
+    var(--step-nav-from) 0%,
+    var(--step-nav-mid) 62%,
+    transparent 100%
+  );
 }
 
 .step-nav[hidden] {
@@ -395,7 +402,7 @@ body.menu-page {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-top: 12px;
+  margin-top: 40px;
 }
 
 .site-footer-links a {

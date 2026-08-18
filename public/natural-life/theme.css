@@ -11,6 +11,8 @@
   --color-card-bg: #ffffff;
   --color-border: #e8e3d8;
   --color-soft: #eef2e8;
+  --step-nav-from: #ffffff;
+  --step-nav-mid: #faf8f4;
 }
 
 body {
@@ -38,10 +40,6 @@ body {
   font-weight: 300;
   letter-spacing: 0.03em;
   color: var(--color-muted);
-}
-
-.step-nav {
-  background: transparent;
 }
 
 .step-title {

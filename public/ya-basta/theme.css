@@ -11,6 +11,8 @@
   --color-card-bg: #fffdf8;
   --color-border: #ddd0b0;
   --color-soft: #e8f0dc;
+  --step-nav-from: #e4ecda;
+  --step-nav-mid: #f2ead9;
 }
 
 body {
@@ -37,10 +39,6 @@ body {
 .tagline {
   font-family: Georgia, "Times New Roman", serif;
   color: #8a6d3b;
-}
-
-.step-nav {
-  background: transparent;
 }
 
 .step-title {
