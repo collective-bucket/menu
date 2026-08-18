@@ -58,7 +58,7 @@
         {
           "id": "votka",
           "name": "Votka",
-          "icon": "spirits",
+          "icon": "highball",
           "products": [
             { "name": "Absolut", "price": 370 },
             { "name": "Absolut Enerji", "price": 440 },
@@ -68,7 +68,7 @@
         {
           "id": "raki",
           "name": "Rakı",
-          "icon": "wine",
+          "icon": "raki",
           "products": [
             { "name": "Rakı Tek", "price": 200 },
             { "name": "Rakı Duble", "price": 300 }
@@ -77,7 +77,7 @@
         {
           "id": "cin",
           "name": "Cin",
-          "icon": "spirits",
+          "icon": "highball",
           "products": [
             { "name": "Gilbey's Gin", "price": 340 },
             { "name": "Beefeater", "price": 390 }
@@ -86,7 +86,7 @@
         {
           "id": "rom",
           "name": "Rom",
-          "icon": "spirits",
+          "icon": "rocks",
           "products": [
             { "name": "Bacardi", "price": 390 },
             { "name": "Havana Club", "price": 390 }
@@ -105,7 +105,7 @@
         {
           "id": "viski",
           "name": "Viski",
-          "icon": "spirits",
+          "icon": "rocks",
           "products": [
             { "name": "Jameson Tek", "price": 380 },
             { "name": "Jameson Duble", "price": 700 },
