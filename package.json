@@ -5,6 +5,7 @@
   "description": "Basit, statik ve ücretsiz bir QR menü demosu (Firebase Hosting).",
   "scripts": {
     "generate-qr": "node scripts/generate-qr.js",
+    "generate-print-pdfs": "node scripts/generate-print-pdfs.js",
     "stamp": "node scripts/stamp-assets.js",
     "serve": "npx firebase-tools emulators:start --only hosting",
     "deploy": "npx firebase-tools deploy --only hosting:menu"
@@ -12,5 +13,9 @@
   "devDependencies": {
     "firebase-tools": "^15.26.0",
     "qrcode": "^1.5.4"
+  },
+  "dependencies": {
+    "pdfkit": "^0.19.1",
+    "svg-to-pdfkit": "^0.1.8"
   }
 }

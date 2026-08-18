@@ -12,7 +12,7 @@
     link.href = "/" + biz.slug + "/";
 
     var qrImg = document.createElement("img");
-    qrImg.src = "/assets/" + biz.slug + "-qr.png";
+    qrImg.src = "/assets/" + biz.slug + "-qr.svg";
     qrImg.alt = biz.name + " menüsüne giden QR kod";
     qrImg.loading = "lazy";
     link.appendChild(qrImg);
@@ -29,12 +29,25 @@
 
     card.appendChild(link);
 
+    var linkRow = document.createElement("div");
+    linkRow.className = "card-links";
+
     var downloadLink = document.createElement("a");
     downloadLink.className = "qr-download";
-    downloadLink.href = "/assets/" + biz.slug + "-qr.png";
-    downloadLink.download = biz.slug + "-qr.png";
+    downloadLink.href = "/assets/" + biz.slug + "-qr.svg";
+    downloadLink.download = biz.slug + "-qr.svg";
     downloadLink.textContent = "QR kodu indir ↓";
-    card.appendChild(downloadLink);
+    linkRow.appendChild(downloadLink);
+
+    var printLink = document.createElement("a");
+    printLink.className = "qr-download";
+    printLink.href = "/assets/" + biz.slug + "-qr.pdf";
+    printLink.target = "_blank";
+    printLink.rel = "noopener";
+    printLink.textContent = "QR kodu yazdır";
+    linkRow.appendChild(printLink);
+
+    card.appendChild(linkRow);
 
     return card;
   }
