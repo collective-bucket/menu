@@ -4,10 +4,6 @@
     "tagline": "",
     "currency": "₺"
   },
-  "dailySpecials": {
-    "title": "Günün Spesiyalleri",
-    "items": ["Gözleme", "Yoğurtlu Köfte"]
-  },
   "categories": [
     {
       "icon": "🍺",
@@ -90,13 +86,12 @@
         {
           "name": "Special",
           "lang": "en",
-          "note": "Tamamı 550 ₺",
           "items": [
-            { "name": "Kiwi Love" },
-            { "name": "Watermelon Dream" },
-            { "name": "Lemon Spring" },
-            { "name": "Wine Love" },
-            { "name": "Sabasta Special" }
+            { "name": "Kiwi Love", "price": 550 },
+            { "name": "Watermelon Dream", "price": 550 },
+            { "name": "Lemon Spring", "price": 550 },
+            { "name": "Wine Love", "price": 550 },
+            { "name": "Sabasta Special", "price": 550 }
           ]
         }
       ]

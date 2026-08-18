@@ -54,7 +54,6 @@ Promise.all([
     console.log("  - " + pngPath);
     console.log("  - " + svgPath);
     console.log("Hedef URL: " + url);
-    console.log("\nKontrol için public/qr.html sayfasını açabilirsiniz.");
   })
   .catch((err) => {
     console.error("QR kod üretilirken hata oluştu:", err);
