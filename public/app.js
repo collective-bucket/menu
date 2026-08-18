@@ -20,9 +20,9 @@
     pizza: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 21h18L12 3zm0 5.5 5.8 11H6.2L12 8.5zM11 13h2v2h-2v-2z"/></svg>',
     sandwich: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v3H4V7zm0 5h16v2H4v-2zm0 4h16v3H4v-3z"/></svg>',
     spirits: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6l-1 5h-4L9 3zm1 7h4v9a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-9z"/></svg>',
-    raki: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.25 2h3.5l-.7 8.4A2.1 2.1 0 0 1 12 12.7a2.1 2.1 0 0 1-1.05-2.3L10.25 2zm1.1 11.2h1.3V19H16v1.7H8V19h3.35v-5.8z"/></svg>',
-    rocks: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 8h15l-1.1 11.2A2.4 2.4 0 0 1 16 21.5H8a2.4 2.4 0 0 1-2.4-2.3L4.5 8zm2-2.2h11v2.2h-11V5.8z"/></svg>',
-    highball: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.4 2h11.2L16.4 20.3a2.2 2.2 0 0 1-2.2 1.9H9.8a2.2 2.2 0 0 1-2.2-1.9L6.4 2z"/></svg>'
+    raki: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M9.4 2h5.2v20H9.4V2zm1.8 2.2v15.6h1.6V4.2h-1.6z"/></svg>',
+    rocks: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M3.8 7.2h16.4L18.6 21.5H5.4L3.8 7.2zm2.9 2.4.9 8.4h8.8l.9-8.4H6.7z"/></svg>',
+    highball: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M6.4 2h11.2v20H6.4V2zm2.4 2.2v15.6h6.4V4.2H8.8z"/></svg>'
   };
 
   var state = {
