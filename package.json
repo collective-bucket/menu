@@ -1,8 +1,8 @@
 {
-  "name": "qr-menu",
+  "name": "collective-bucket-menu",
   "version": "1.0.0",
   "private": true,
-  "description": "Basit, statik ve ücretsiz bir QR menü demosu (Firebase Hosting).",
+  "description": "Collective Bucket — QR ile açılan, JSON tabanlı dijital menü.",
   "scripts": {
     "generate-qr": "node scripts/generate-qr.js",
     "stamp": "node scripts/stamp-assets.js",
