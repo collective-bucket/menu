@@ -16,16 +16,16 @@
           "name": "Meşrubat",
           "icon": "soft",
           "products": [
-            { "name": "Meşrubat", "price": 100 },
-            { "name": "Küçük Su", "price": 20 },
-            { "name": "Büyük Su", "price": 40 },
-            { "name": "Ayran", "price": 40 },
-            { "name": "Soda", "price": 40 },
-            { "name": "Churchill", "price": 60 },
-            { "name": "Portakal Suyu", "price": 130 },
-            { "name": "Limonata", "price": 130 },
-            { "name": "Ice Tea (Ev Yapımı)", "price": 130 },
-            { "name": "Enerji", "price": 120 }
+            { "name": "Meşrubat", "price": 140 },
+            { "name": "Küçük Su", "price": 30 },
+            { "name": "Büyük Su", "price": 60 },
+            { "name": "Ayran", "price": 150 },
+            { "name": "Soda", "price": 60 },
+            { "name": "Churchill", "price": 120 },
+            { "name": "Portakal Suyu", "price": 190 },
+            { "name": "Limonata (Ev Yapımı)", "price": 230 },
+            { "name": "Ice Tea (Ev Yapımı)", "price": 190 },
+            { "name": "Red Bull", "price": 160 }
           ]
         },
         {
@@ -33,12 +33,12 @@
           "name": "Çay / Kahve",
           "icon": "coffee",
           "products": [
-            { "name": "Türk Kahvesi", "price": 100 },
-            { "name": "Filtre Kahve", "price": 130 },
-            { "name": "Çay", "price": 40 },
-            { "name": "Nescafe", "price": 100 },
-            { "name": "Soğuk Kahve", "price": 140 },
-            { "name": "Bitki Çayı", "price": 130 }
+            { "name": "Türk Kahvesi", "price": 130 },
+            { "name": "Filtre Kahve", "price": 175 },
+            { "name": "Çay", "price": 50 },
+            { "name": "Nescafe", "price": 120 },
+            { "name": "Soğuk Kahve", "price": 180 },
+            { "name": "Bitki Çayı", "price": 160 }
           ]
         },
         {
@@ -46,13 +46,17 @@
           "name": "Bira",
           "icon": "beer",
           "products": [
-            { "name": "Efes Malt", "price": 200 },
-            { "name": "Efes Özel Seri", "price": 220 },
-            { "name": "Bomonti Filtresiz", "price": 220 },
-            { "name": "Beck's", "price": 250 },
-            { "name": "Bud", "price": 250 },
-            { "name": "Corona", "price": 280 },
-            { "name": "Erdinger", "price": 250 }
+            { "name": "Efes Malt", "price": 250 },
+            { "name": "Efes Pilsen 33 cl", "price": 250 },
+            { "name": "Efes Özel Seri", "price": 300 },
+            { "name": "Efes Glutensiz", "price": 300 },
+            { "name": "Bomonti Filtresiz", "price": 300 },
+            { "name": "Bud", "price": 350 },
+            { "name": "Corona", "price": 350 },
+            { "name": "Beck's", "price": 350 },
+            { "name": "Stella Artois", "price": 350 },
+            { "name": "Erdinger", "price": 450 },
+            { "name": "Hoegaarden", "price": 450 }
           ]
         },
         {
@@ -60,9 +64,9 @@
           "name": "Votka",
           "icon": "highball",
           "products": [
-            { "name": "Absolut", "price": 370 },
-            { "name": "Absolut Enerji", "price": 440 },
-            { "name": "Gilbeys Votka", "price": 340 }
+            { "name": "Absolut", "price": 500 },
+            { "name": "Absolut Enerji", "price": 600 },
+            { "name": "Gilbeys Votka", "price": 450 }
           ]
         },
         {
@@ -70,8 +74,9 @@
           "name": "Rakı",
           "icon": "raki",
           "products": [
-            { "name": "Rakı Tek", "price": 200 },
-            { "name": "Rakı Duble", "price": 300 }
+            { "name": "Rakı Tek", "price": 250 },
+            { "name": "Rakı Tek Buçuk", "price": 370 },
+            { "name": "Rakı Duble", "price": 470 }
           ]
         },
         {
@@ -79,8 +84,8 @@
           "name": "Cin",
           "icon": "highball",
           "products": [
-            { "name": "Gilbey's Gin", "price": 340 },
-            { "name": "Beefeater", "price": 390 }
+            { "name": "Gilbey's Cin", "price": 450 },
+            { "name": "Beefeater", "price": 500 }
           ]
         },
         {
@@ -88,8 +93,8 @@
           "name": "Rom",
           "icon": "rocks",
           "products": [
-            { "name": "Bacardi", "price": 390 },
-            { "name": "Havana Club", "price": 390 }
+            { "name": "Bacardi", "price": 500 },
+            { "name": "Havana Club", "price": 500 }
           ]
         },
         {
@@ -97,9 +102,10 @@
           "name": "Shotlar",
           "icon": "shot",
           "products": [
-            { "name": "Jägermeister Shot", "price": 200 },
-            { "name": "Jameson Shot", "price": 210 },
-            { "name": "Olmeca Shot", "price": 200 }
+            { "name": "Jägermeister Shot", "price": 250 },
+            { "name": "Jameson Shot", "price": 270 },
+            { "name": "Olmeca Shot", "price": 250 },
+            { "name": "Fireball", "price": 270 }
           ]
         },
         {
@@ -107,12 +113,12 @@
           "name": "Viski",
           "icon": "rocks",
           "products": [
-            { "name": "Jameson Tek", "price": 380 },
-            { "name": "Jameson Duble", "price": 700 },
-            { "name": "Jack Daniel's Tek", "price": 390 },
-            { "name": "Jack Daniel's Duble", "price": 740 },
-            { "name": "Chivas Regal Tek", "price": 420 },
-            { "name": "Chivas Regal Duble", "price": 750 }
+            { "name": "Jameson Tek", "price": 450 },
+            { "name": "Jameson Duble", "price": 850 },
+            { "name": "Jack Daniel's Tek", "price": 500 },
+            { "name": "Jack Daniel's Duble", "price": 950 },
+            { "name": "Chivas Regal Tek", "price": 550 },
+            { "name": "Chivas Regal Duble", "price": 1050 }
           ]
         },
         {
@@ -120,16 +126,16 @@
           "name": "Kokteyl",
           "icon": "cocktail",
           "products": [
-            { "name": "Long Island", "price": 510 },
-            { "name": "Mojito", "price": 510 },
-            { "name": "Lynchburg", "price": 510 },
-            { "name": "Mr Q", "price": 510 },
-            { "name": "Scarlett", "price": 510 },
-            { "name": "Margarita", "price": 510 },
-            { "name": "Cuba Libre", "price": 470 },
-            { "name": "White Russian", "price": 470 },
-            { "name": "Whiskey Sour", "price": 470 },
-            { "name": "İmza Kokteyller", "price": 520 }
+            { "name": "Long Island", "price": 670 },
+            { "name": "Mojito", "price": 670 },
+            { "name": "Lynchburg", "price": 670 },
+            { "name": "Mr Q", "price": 670 },
+            { "name": "Scarlett", "price": 670 },
+            { "name": "Margarita", "price": 610 },
+            { "name": "Cuba Libre", "price": 610 },
+            { "name": "White Russian", "price": 610 },
+            { "name": "Whiskey Sour", "price": 670 },
+            { "name": "İmza Kokteyller", "price": 700 }
           ]
         },
         {
@@ -137,18 +143,12 @@
           "name": "Şarap",
           "icon": "wine",
           "products": [
-            { "name": "İdol Kırmızı Kadeh", "price": 310 },
-            { "name": "İdol Beyaz Kadeh", "price": 310 },
-            { "name": "İdol Roze Kadeh", "price": 310 },
-            { "name": "Antre Kırmızı Kadeh", "price": 380 },
-            { "name": "Antre Beyaz Kadeh", "price": 380 },
-            { "name": "Smyrna Roze Kadeh", "price": 380 },
-            { "name": "İdol Kırmızı Şişe", "price": 1150 },
-            { "name": "İdol Beyaz Şişe", "price": 1150 },
-            { "name": "İdol Roze Şişe", "price": 1150 },
-            { "name": "Antre Kırmızı Şişe", "price": 1500 },
-            { "name": "Antre Beyaz Şişe", "price": 1500 },
-            { "name": "Smyrna Roze Şişe", "price": 1500 }
+            { "name": "Kırmızı Kadeh", "price": 500 },
+            { "name": "Beyaz Kadeh", "price": 500 },
+            { "name": "Roze Kadeh", "price": 500 },
+            { "name": "Kırmızı Şişe", "price": 1950 },
+            { "name": "Beyaz Şişe", "price": 1950 },
+            { "name": "Roze Şişe", "price": 1950 }
           ]
         },
         {
@@ -156,7 +156,7 @@
           "name": "Alkolsüz Kokteyl",
           "icon": "cocktail",
           "products": [
-            { "name": "Meyve Kokteyli", "price": 250 }
+            { "name": "Meyve Kokteyli", "price": 325 }
           ]
         }
       ]
@@ -171,12 +171,12 @@
           "name": "Tostlar ve Sandviçler",
           "icon": "sandwich",
           "products": [
-            { "name": "Peynirli Tost", "price": 225, "description": "Krem peynir, mozzarella, cheddar, domates ve salatalık eşliğinde." },
-            { "name": "Karışık Tost", "price": 260, "description": "Krem peynir, mozzarella, cheddar, hindi füme, domates ve salatalık eşliğinde." },
-            { "name": "Ton Balıklı Sandviç", "price": 350, "description": "Ton balığı, domates, roka, biber, ranch sos ile." },
-            { "name": "Club Sandviç", "price": 460, "description": "Krem peynir, çeçil peyniri, cheddar, hindi jambon, dana jambon, ranch sos, domates ve yeşillik. Baharatlı patates eşliğinde." },
-            { "name": "Peynirli Quesadilla", "price": 340, "description": "Krem peynir, mozzarella, cheddar, parmesan, avokado dip sos ile." },
-            { "name": "Karışık Quesadilla", "price": 340, "description": "Krem peynir, mozzarella, cheddar, parmesan, hindi füme, dana jambon, avokado dip sos ile." }
+            { "name": "Peynirli Tost", "price": 300, "description": "Krem peynir, mozzarella, cheddar, domates ve salatalık eşliğinde." },
+            { "name": "Karışık Tost", "price": 340, "description": "Krem peynir, mozzarella, cheddar, hindi füme, domates ve salatalık eşliğinde." },
+            { "name": "Ton Balıklı Sandviç", "price": 450, "description": "Ton balığı, domates, roka, biber, ranch sos ile." },
+            { "name": "Club Sandviç", "price": 600, "description": "Krem peynir, çeçil peyniri, cheddar, hindi füme, dana jambon, ranch sos, domates ve yeşillik. Baharatlı patates eşliğinde." },
+            { "name": "Peynirli Quesadilla", "price": 450, "description": "Krem peynir, mozzarella, cheddar, parmesan, avokado dip sos ile." },
+            { "name": "Karışık Quesadilla", "price": 450, "description": "Krem peynir, mozzarella, cheddar, parmesan, hindi füme, dana jambon, avokado dip sos ile." }
           ]
         },
         {
@@ -184,9 +184,9 @@
           "name": "Omletler",
           "icon": "breakfast",
           "products": [
-            { "name": "Beyaz Peynirli Omlet", "price": 200 },
-            { "name": "Karışık Omlet", "price": 200, "description": "Mozzarella peyniri, mantar, hindi füme." },
-            { "name": "Menemen", "price": 200 }
+            { "name": "Beyaz Peynirli Omlet", "price": 260 },
+            { "name": "Karışık Omlet", "price": 260, "description": "Mozzarella peyniri, mantar, hindi füme." },
+            { "name": "Menemen", "price": 260 }
           ]
         },
         {
@@ -194,8 +194,8 @@
           "name": "Wrapler",
           "icon": "wrap",
           "products": [
-            { "name": "Tavuklu Wrap", "price": 440, "description": "Izgara sebzeler, ızgara tavuk dilimleri, cheddar, avokado sos, baharatlı patates eşliğinde." },
-            { "name": "Sebzeli Wrap", "price": 380, "description": "Balzamik sirkeli ızgara sebzeler, cheddar, avokado sos, baharatlı patates eşliğinde." }
+            { "name": "Tavuklu Wrap", "price": 570, "description": "Izgara sebzeler, ızgara tavuk dilimleri, cheddar, avokado sos, baharatlı patates eşliğinde." },
+            { "name": "Sebzeli Wrap", "price": 500, "description": "Balzamik sirkeli ızgara sebzeler, cheddar, avokado sos, baharatlı patates eşliğinde." }
           ]
         },
         {
@@ -203,10 +203,10 @@
           "name": "Atıştırmalıklar",
           "icon": "fries",
           "products": [
-            { "name": "Baharatlı Patates Kızartması", "price": 200, "description": "Ev Yapımı" },
-            { "name": "Bira Tabağı", "price": 550, "description": "Nugget, sosis, soğan halkası, tavuk topları, ev yapımı baharatlı patates kızartması." },
-            { "name": "Meyve Tabağı", "price": 300, "description": "Mevsim meyveleri." },
-            { "name": "Çerez", "price": 150 }
+            { "name": "Baharatlı Patates Kızartması", "price": 250, "description": "Ev yapımı." },
+            { "name": "Bira Tabağı", "price": 650, "description": "Nugget, sosis, soğan halkası, tavuk topları, ev yapımı baharatlı patates kızartması." },
+            { "name": "Meyve Tabağı", "price": 390, "description": "Mevsim meyveleri." },
+            { "name": "Çerez", "price": 195 }
           ]
         },
         {
@@ -214,8 +214,8 @@
           "name": "Hamburger ve Köfte",
           "icon": "burger",
           "products": [
-            { "name": "Cheese Burger", "price": 490, "description": "140 gr. hamburger köftesi, karamelize soğan, cheddar, domates, yeşillik, turşu, özel sos ile. Baharatlı patates kızartması eşliğinde." },
-            { "name": "Köfte Porsiyon", "price": 500, "description": "200 gr. köfte, salata ve baharatlı patates kızartması eşliğinde." }
+            { "name": "Cheese Burger", "price": 600, "description": "140 gr. hamburger köftesi, karamelize soğan, cheddar, domates, yeşillik, turşu, özel sos ve baharatlı patates kızartması eşliğinde." },
+            { "name": "Köfte Porsiyon", "price": 650, "description": "200 gr. köfte, salata ve baharatlı patates eşliğinde." }
           ]
         },
         {
@@ -223,10 +223,9 @@
           "name": "Makarnalar",
           "icon": "pasta",
           "products": [
-            { "name": "Napoliten Soslu Fettuccine", "price": 360, "description": "Domates, fesleğen, parmesan peyniri." },
-            { "name": "Bolonez Soslu Fettuccine", "price": 390, "description": "Kıyma, domates, fesleğen, parmesan peyniri." },
-            { "name": "Alfredo Soslu Fettuccine", "price": 420, "description": "Mantar, krema, ızgara marine tavuk ve parmesan peyniri." },
-            { "name": "Deniz Mahsullü Fettuccine", "price": 440, "description": "Karides, kalamar, ton balığı ve parmesan peyniri." }
+            { "name": "Napolitan Fettuccine", "price": 470, "description": "Domates, fesleğen, parmesan peyniri." },
+            { "name": "Bolonez Fettuccine", "price": 500, "description": "Kıyma, domates sos, fesleğen, parmesan peyniri." },
+            { "name": "Alfredo Fettuccine", "price": 550, "description": "Mantar, krema, ızgara marine tavuk ve parmesan peyniri." }
           ]
         },
         {
@@ -234,10 +233,10 @@
           "name": "Pizzalar",
           "icon": "pizza",
           "products": [
-            { "name": "Sebzeli Pizza", "price": 520, "description": "Mevsim sebzeleri, pizza sosu, mozzarella, parmesan, roka eşliğinde." },
-            { "name": "Karışık Pizza", "price": 600, "description": "Hindi füme, dana jambon, mevsim sebzeleri, pizza sosu, mozzarella, parmesan, roka eşliğinde." },
-            { "name": "Deniz Mahsullü Pizza", "price": 650, "description": "Karides, kalamar, ton balığı, kapari, kırmızı soğan, mısır, pizza sosu, mozzarella, parmesan, roka eşliğinde." },
-            { "name": "Dört Peynirli Pizza", "price": 585, "description": "Mozzarella, cheddar, çeçil peyniri, roka eşliğinde." }
+            { "name": "Sebzeli Pizza", "price": 680, "description": "Mevsim sebzeleri, mozzarella, parmesan, roka eşliğinde." },
+            { "name": "Karışık Pizza", "price": 780, "description": "Hindi füme, dana jambon, mevsim sebzeleri, mozzarella, parmesan, roka eşliğinde." },
+            { "name": "Deniz Mahsullü Pizza", "price": 850, "description": "Karides, kalamar, ton balığı, kapari, kırmızı soğan, mısır, mozarella, parmesan, roka eşliğinde." },
+            { "name": "Dört Peynirli Pizza", "price": 750, "description": "Mozzarella, cheddar, parmesan, çeçil peyniri, roka eşliğinde." }
           ]
         },
         {
@@ -245,9 +244,9 @@
           "name": "Salatalar",
           "icon": "salad",
           "products": [
-            { "name": "Beyaz Peynirli Salata", "price": 300, "description": "Akdeniz yeşillikleri, beyaz peynir, kuru meyveler, zeytinyağı ve ekşisi." },
-            { "name": "Ton Balıklı Salata", "price": 420, "description": "Akdeniz yeşillikleri, ton balığı, kapari, mısır, limon, zeytinyağı." },
-            { "name": "Tavuklu Salata", "price": 400, "description": "Akdeniz yeşillikleri, ızgara tavuk dilimleri, domates, biber, avokado ve ranch sos." }
+            { "name": "Beyaz Peynirli Salata", "price": 390, "description": "Akdeniz yeşillikleri, beyaz peynir, kuru meyveler, nar ekşisi, zeytinyağı." },
+            { "name": "Ton Balıklı Salata", "price": 550, "description": "Akdeniz yeşillikleri, ton balığı, kapari, mısır, limon, zeytinyağı." },
+            { "name": "Tavuklu Salata", "price": 520, "description": "Akdeniz yeşillikleri, ızgara tavuk dilimleri, domates, biber, avokado ve ranch sos." }
           ]
         },
         {
@@ -255,9 +254,9 @@
           "name": "Açık Büfe Yemekler",
           "icon": "food",
           "products": [
-            { "name": "Kahvaltı", "price": 550 },
-            { "name": "Öğle Yemeği", "price": 350 },
-            { "name": "Akşam Yemeği", "price": 800 }
+            { "name": "Kahvaltı", "price": 800 },
+            { "name": "Öğle Yemeği", "price": 500 },
+            { "name": "Akşam Yemeği", "price": 1200 }
           ]
         }
       ]
